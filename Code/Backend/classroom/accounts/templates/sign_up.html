@@ -52,51 +52,10 @@
                             <div class="tab-pane fade show active" id="instructor-signup-tab" role="tabpanel"
                                 aria-labelledby="instructor-tab">
                                 <p>Sign Up and Create your Profile !</p>
-                                <form>
-                                    <select class="ui hj145 dropdown cntry152 prompt srch_explore">
-                                        <option value="">Select Department</option>
-                                        <option value="1">Accounting & Finance</option>
-                                        <option value="2">Economics</option>
-                                        <option value="3">Management</option>
-                                        <option value="4">Marketing & International Business</option>
-                                        <option value="5">MBA & EMBA Programs</option>
-                                        <option value="6">Architecture</option>
-                                        <option value="7">Civil & Environmental Engineering</option>
-                                        <option value="8">Electrical & Computer Engineering</option>
-                                        <option value="9">Mathematics & Physics</option>
-                                        <option value="10">English & Modern Languages</option>
-                                        <option value="11">Political Science & Sociology</option>
-                                        <option value="12">Law</option>
-                                        <option value="13">Biochemistry & Microbiology</option>
-                                        <option value="14">Environmental Science & Management</option>
-                                        <option value="15">Pharmaceutical Sciences</option>
-                                        <option value="16">Public Health</option>                                        
-                                    </select>
-                                    <div class="ui search focus mt-15">
-                                        <div class="ui left icon input swdh11 swdh19">
-                                            <input class="prompt srch_explore" type="text" name="name" value=""
-                                                id="id_name" required="" maxlength="64" placeholder="Name">
-                                        </div>
-                                    </div> 
-                                    <div class="ui search focus mt-15">
-                                        <div class="ui left icon input swdh11 swdh19">
-                                            <input class="prompt srch_explore" type="text" name="number" value=""
-                                                id="id_number" required="" maxlength="64" placeholder="Id Number">
-                                        </div>
-                                    </div>                            
-                                    <div class="ui search focus mt-15">
-                                        <div class="ui left icon input swdh11 swdh19">
-                                            <input class="prompt srch_explore" type="email" name="emailaddress" value=""
-                                                id="id_email" required="" maxlength="64" placeholder="Email Address">
-                                        </div>
-                                    </div>
-                                    <div class="ui search focus mt-15">
-                                        <div class="ui left icon input swdh11 swdh19">
-                                            <input class="prompt srch_explore" type="password" name="password" value=""
-                                                id="id_password" required="" maxlength="64" placeholder="Password">
-                                        </div>
-                                    </div> 
-                                    
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    {{ user_form.as_p }}
+                                    {{ faculty_profile_form.as_p}}                                    
                                     <button class="login-btn" type="submit">Instructor Sign Up Now</button>
                                 </form>
                             </div>

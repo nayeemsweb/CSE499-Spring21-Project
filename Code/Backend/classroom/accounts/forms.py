@@ -12,9 +12,9 @@ class UserForm(forms.ModelForm):
 class StudentProfileForm(forms.ModelForm):
     class Meta:
         model = StudentProfile
-        fields = ('studentID')
+        fields = ('studentID', 'Department')
 
 class FacultyProfileForm(forms.ModelForm):
     class Meta:
         model= FacultyProfile
-        fields = ('faculty_id', 'bio')
+        fields = ('faculty_id', 'Department', 'bio')
