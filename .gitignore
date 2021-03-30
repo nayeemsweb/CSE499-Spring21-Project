@@ -1,4 +1,8 @@
+# pycache files
 Code/Backend/classroom/accounts/__pycache__/
 Code/Backend/classroom/accounts/migrations/__pycache__/
 Code/Backend/classroom/classroom/__pycache__/
+
+# VSCode variables
 .vscode/settings.json
+
