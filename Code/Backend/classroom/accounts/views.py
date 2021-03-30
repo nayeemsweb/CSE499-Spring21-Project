@@ -3,6 +3,6 @@ from django.contrib import messages
 
 # Create your views here.
 
-def student_profile_view(request):
+def student_profile_signup(request):
     if request.method == 'POST':
         
