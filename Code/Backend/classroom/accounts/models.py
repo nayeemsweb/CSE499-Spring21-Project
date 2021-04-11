@@ -27,10 +27,17 @@ class User(AbstractUser):
     last_name = models.CharField(max_length=50)
     department =models.CharField(max_length=100, choices=Department, default='None')
 
+    #def __str__(self):
+	 #   return f'{self.user.first_name}'
+    
+
 class StudentProfile(models.Model):      
     user = models.OneToOneField(User, on_delete=models.CASCADE,primary_key= True) 
     image = models.ImageField(default='default.jpg',upload_to='student_pics')
     studentID = models.CharField(max_length=20)
+
+    def __str__(self):
+	    return f'{self.user.first_name}'
 
 class FacultyProfile(models.Model):
 
@@ -39,3 +46,6 @@ class FacultyProfile(models.Model):
     facultyID = models.CharField(max_length=20)
     bio = models.CharField(max_length=100)    
     
+
+    def __str__(self):
+	    return f'{self.user.first_name} '
