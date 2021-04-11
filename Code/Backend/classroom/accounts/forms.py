@@ -9,7 +9,7 @@ class StudentProfileForm(UserCreationForm):
         model= User
         fields= ['first_name','last_name','studentID', 'department', 'email']
     @transaction.atomic
-    def data_save(self):
+    def save(self):
         user = super().save(commit=False)
         user.save()
         student = StudentProfile.objects.create(user = user)
@@ -24,7 +24,7 @@ class FacultyProfileForm(forms.ModelForm):
         model= User
         fields= ['first_name','last_name','department', 'facultyID', 'bio', 'email']
     @transaction.atomic
-    def data_save(self):
+    def save(self):
         user = super().save(commit=False)
         user.save()
         faculty = FacultyProfile.objects.create(user = user)
