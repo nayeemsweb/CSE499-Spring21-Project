@@ -1,8 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-from PIL import Image
+from django.contrib.auth.models import User
 
-class User(AbstractUser):
+class department (models.Model):
     Department= [
         ('Accounting & Finance', 'Accounting & Finance'),
         ('Economics', 'Economics'),
@@ -21,31 +20,38 @@ class User(AbstractUser):
         ('Pharmaceutical Sciences', 'Pharmaceutical Sciences'),
         ('Public Health', 'Public Health'),        
     ]
-    is_student = models.BooleanField(default=True)
-    is_faculty = models.BooleanField(default=True)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    department =models.CharField(max_length=100, choices=Department, default='None')
+    name = models.CharField(max_length=200, choices=Department)
 
-    #def __str__(self):
-	 #   return f'{self.user.first_name}'
-    
-
-class StudentProfile(models.Model):      
-    user = models.OneToOneField(User, on_delete=models.CASCADE,primary_key= True) 
-    image = models.ImageField(default='default.jpg',upload_to='student_pics')
+    def __str__(self):
+        return self.name
+class student (models.Model):
+    user = models.OneToOneField(User, null=True, blank= True, on_delete= models.CASCADE)
+    name = models.CharField(max_length=200)
     studentID = models.CharField(max_length=20)
+    email = models.CharField(max_length=100)
+    date_created = models.DateTimeField(auto_now_add=True)
+    department = models.ForeignKey(department, null=True, on_delete= models.SET_NULL)
 
     def __str__(self):
-	    return f'{self.user.first_name}'
+        return self.name
 
-class FacultyProfile(models.Model):
 
-    user = models.OneToOneField(User, on_delete = models.CASCADE,primary_key=True) 
-    image = models.ImageField(default='default.jpg',upload_to='faculty_pics')
+class faculty (models.Model):
+    user = models.OneToOneField(User, null=True, blank= True, on_delete= models.CASCADE)
+    name = models.CharField(max_length=200)
     facultyID = models.CharField(max_length=20)
-    bio = models.CharField(max_length=100)    
-    
+    email = models.CharField(max_length=100)
+    date_created = models.DateTimeField(auto_now_add=True)
+    initials = models.CharField(max_length=10)
+    bio = models.CharField(max_length=500)
+    department = models.ForeignKey(department, null=True, on_delete= models.SET_NULL)
+
 
     def __str__(self):
-	    return f'{self.user.first_name} '
+        return self.name
+
+
+
+
+
+
