@@ -10,7 +10,7 @@ class StudentForm (forms.ModelForm):
         fields = '__all__'      
 
 
-class FacultyProfileForm(forms.ModelForm):
+class FacultyForm(forms.ModelForm):
     class Meta:
         model = faculty
         fields = '__all__' 

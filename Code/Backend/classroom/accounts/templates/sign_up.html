@@ -56,10 +56,10 @@
                             <div class="tab-pane fade show active" id="instructor-signup-tab" role="tabpanel"
                                 aria-labelledby="instructor-tab">
                                 <p>Sign Up and Create your Profile !</p>
-                                <form action="{% url 'facultyRegister' %}"method="POST">
+                                <form action="#"method="POST">
                                     {% csrf_token %} 
                                     {{form|crispy}}                            
-                                    <button class="login-btn" type="submit">Instructor Sign Up Now</button>
+                                    <button class="login-btn" type="submit">Faculty Sign Up Now</button>
                                 </form>
                             </div>
 
@@ -68,9 +68,9 @@
                             <div class="tab-pane fade" id="student-signup-tab" role="tabpanel"
                                 aria-labelledby="student-tab">
                                 <p>Sign Up and Start Learning!</p>
-                                <form action="{% url 'studentRegister' %}" method="POST">
+                                <form action="#" method="POST">
                                     {% csrf_token %} 
-                                    {{form|crispy}}            
+                                              
                                     <button class="login-btn" type="submit">Student Sign Up Now</button>
                                 </form>
                             </div>
