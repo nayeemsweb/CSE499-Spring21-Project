@@ -1,17 +1,17 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import student, faculty
+from .models import Student, Faculty
 
 
 class StudentForm (forms.ModelForm):
     class Meta:
-        model = student
+        model = Student
         fields = '__all__'      
 
 
 class FacultyForm(forms.ModelForm):
     class Meta:
-        model = faculty
+        model = Faculty
         fields = '__all__' 
         

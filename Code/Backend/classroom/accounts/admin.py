@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import student, faculty, department
+from .models import Student, Faculty, Department
 
 # Register your models here.
-admin.site.register(department)
-admin.site.register(student)
-admin.site.register(faculty)
+admin.site.register(Student)
+admin.site.register(Faculty)
+admin.site.register(Department)
