@@ -70,7 +70,8 @@
                                 <p>Sign Up and Start Learning!</p>
                                 <form action="#" method="POST">
                                     {% csrf_token %} 
-                                              
+                                    {{userform|crispy}}
+                                    {{studentform|crispy}}
                                     <button class="login-btn" type="submit">Student Sign Up Now</button>
                                 </form>
                             </div>
