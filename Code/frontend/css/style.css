@@ -937,6 +937,7 @@ i.icon1 {
 }
 
 .fcrse_1 {
+    
     background: #fff;
     width: 100%;
 	float: left;
@@ -1253,7 +1254,7 @@ i.icon1 {
 	opacity: 1;
 }
 
-.featured_courses .owl-nav .owl-prev {
+.featured_courses .owl-nav .owl-prev {  
 	left: -20px;
     font-size: 20px !important;
     position: absolute;
@@ -1351,6 +1352,7 @@ i.icon1 {
 
 
 .section3126 {
+
     float: left;
     width: 100%;
 }

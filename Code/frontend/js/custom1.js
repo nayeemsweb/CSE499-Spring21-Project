@@ -7,82 +7,7 @@ $('.ui.checkbox').checkbox();
 $('.enable.button').on('click', function () {
     $(this).nextAll('.checkbox').checkbox('enable');
 });
-$('.live_stream').owlCarousel({
-    items: 10,
-    loop: false,
-    margin: 10,
-    nav: true,
-    dots: false,
-    navText: ["<i class='uil uil-angle-left'></i>", "<i class='uil uil-angle-right'></i>"],
-    responsive: {
-        0: {
-            items: 2
-        },
-        600: {
-            items: 3
-        },
-        1000: {
-            items: 3
-        },
-        1200: {
-            items: 5
-        },
-        1400: {
-            items: 6
-        }
-    }
-})
-$('.featured_courses').owlCarousel({
-    items: 10,
-    loop: false,
-    margin: 20,
-    nav: true,
-    dots: false,
-    navText: ["<i class='uil uil-angle-left'></i>", "<i class='uil uil-angle-right'></i>"],
-    responsive: {
-        0: {
-            items: 1
-        },
-        600: {
-            items: 2
-        },
-        1000: {
-            items: 1
-        },
-        1200: {
-            items: 2
-        },
-        1400: {
-            items: 3
-        }
-    }
-})
-$('.top_instrutors').owlCarousel({
-    items: 10,
-    loop: false,
-    margin: 20,
-    nav: true,
-    dots: false,
-    navText: ["<i class='uil uil-angle-left'></i>", "<i class='uil uil-angle-right'></i>"],
-    responsive: {
-        0: {
-            items: 1
-        },
-        600: {
-            items: 2
-        },
-        1000: {
-            items: 1
-        },
-        1200: {
-            items: 2
-        },
-        1400: {
-            items: 3
-        }
-    }
-})
-$('.Student_says').owlCarousel({
+$('.courses_performance').owlCarousel({
     items: 10,
     loop: false,
     margin: 30,
@@ -94,23 +19,23 @@ $('.Student_says').owlCarousel({
             items: 1
         },
         600: {
-            items: 2
+            items: 1
         },
         1000: {
-            items: 2
+            items: 1
         },
         1200: {
-            items: 3
+            items: 1
         },
         1400: {
-            items: 3
+            items: 2
         }
     }
 })
-$('.feature_careers').owlCarousel({
-    items: 4,
+$('.edututs_news').owlCarousel({
+    items: 10,
     loop: false,
-    margin: 20,
+    margin: 30,
     nav: true,
     dots: false,
     navText: ["<i class='uil uil-angle-left'></i>", "<i class='uil uil-angle-right'></i>"],
@@ -179,4 +104,13 @@ $('input[name="paymentmethod"]').on('click', function () {
     $('.return-departure-dts').slideUp();
     $('[data-method="' + $value + '"]').slideDown();
 });
-
+window.oncontextmenu = function () {
+    return false;
+}
+$(document).keydown(function (event) {
+    if (event.keyCode == 123) {
+        return false;
+    } else if ((event.ctrlKey && event.shiftKey && event.keyCode == 73) || (event.ctrlKey && event.shiftKey && event.keyCode == 74)) {
+        return false;
+    }
+});
