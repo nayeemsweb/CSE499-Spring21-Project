@@ -14,7 +14,7 @@ class StudentForm (forms.ModelForm):
 class FacultyForm(forms.ModelForm):
     class Meta:
         model = Faculty
-        fields = '__all__' 
+        fields = ['facultyID', 'bio', 'department']
 
 class UserRegistration(UserCreationForm):
 

@@ -4,11 +4,11 @@ from .forms import StudentForm, FacultyForm, UserRegistration
 from django.contrib.auth.forms import UserCreationForm
 
 
-def facultyRegistration(request):
-    form = FacultyForm()
-    context = {'form': form}
-
-    return render(request, 'sign_up.html', context)
+def FacultyRegistration(request):
+    userform = UserRegistration()
+    facultyform = FacultyForm()
+    context = {'facultyform': facultyform, 'userform': userform} 
+    return render(request, 'faculty.html', context)
 
 
 def StudentRegistration(request):
@@ -17,4 +17,4 @@ def StudentRegistration(request):
 
     context = {'userform': userform, 'studentform': studentform}
 
-    return render(request, 'sign_up.html', context)
+    return render(request, 'student.html', context)
