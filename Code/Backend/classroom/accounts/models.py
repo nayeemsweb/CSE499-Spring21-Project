@@ -12,7 +12,7 @@ class Student (models.Model):
     department = models.ForeignKey(Department, null=True, on_delete= models.SET_NULL)
 
     def __str__(self) -> str:
-        return self.user.username
+        return self.studentID
 
 
 class Faculty (models.Model):
@@ -23,4 +23,4 @@ class Faculty (models.Model):
 
 
     def __str__(self):
-        return self.user.username
+        return self.facultyID
