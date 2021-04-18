@@ -1,0 +1,35 @@
+
+
+.item{
+   
+	margin-right: 40px;;
+}
+.mkfcrse_1 {
+	margin-top: 50px;
+    margin-right: 160px;
+    background: #fff;
+    width: 110%;
+	float: left;
+    padding: 10px;
+    border-radius: 10px;
+	border: 1px solid #efefef;
+	transition: all .2s ease-in-out;
+}
+
+
+
+.mkfcrse_1:hover .auth1lnkprce .shrt-cart-btn  {
+    display: block;
+	visibility: visible;
+	opacity: 1;
+	transition: all 0.5s ease;
+}
+
+.mkcrse_1:hover  {
+	transition: all 0.5s ease;
+	 transform: translateY(-5px);
+    -webkit-transform: translateY(1px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+}
