@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,17 +13,17 @@
     <link rel="icon" type="image/png" href="images/fav.png">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500" rel='stylesheet'>
-    <link href='vendor/unicons-2.0.1/css/unicons.css' rel='stylesheet'>
-    <link href="css/vertical-responsive-menu.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/night-mode.css" rel="stylesheet">
+    <link href="{% static 'vendor/unicons-2.0.1/css/unicons.css' %}" rel='stylesheet'>
+    <link href="{% static 'css/vertical-responsive-menu.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <link href="{% static 'css/night-mode.css' %}" rel="stylesheet">
 
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="vendor/OwlCarousel/assets/owl.carousel.css" rel="stylesheet">
-    <link href="vendor/OwlCarousel/assets/owl.theme.default.min.css" rel="stylesheet">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="vendor/semantic/semantic.min.css">
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/OwlCarousel/assets/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/OwlCarousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/semantic/semantic.min.css' %}">
 </head>
 
 <body>
@@ -67,7 +68,7 @@
                             <button class="login-btn" type="submit">Sign In</button>
                         </form>
                         <p class="sgntrm145">Or <a href="forgot_password.html">Forgot Password</a>.</p>
-                        <p class="mb-0 mt-30 hvsng145">Don't have an account? <a href="sign_up.html">Sign Up</a></p>
+                        <p class="mb-0 mt-30 hvsng145">Don't have an account? <a href="{% url 'student' %}">Sign Up</a></p>
                     </div>
                     <div class="sign_footer"><img src="images/sign_logo.png" alt="">© 2021 <strong>Classroom</strong>. All
                         Rights Reserved.</div>
