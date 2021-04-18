@@ -56,16 +56,16 @@ def StudentRegistration(request):
 
 def loginPage(request):
     if request.method == 'POST':
-        emailaddress = request.POST.get('emailaddress')
+        username = request.POST.get('emailaddress')
         password = request.POST.get('password')
 
-        user = authenticate(request, emailaddress = emailaddress, password = password)
+        user = authenticate(request, username = username, password = password)
         if user is not None:
             login(request, user)
             return redirect ('homePage')
         else:
             messages.info (request, 'Email address or Password is incorrect')
-            return render(request, 'sign_in/html')
+            #return render(request, 'sign_in.html')
 
     return render(request, 'sign_in.html')
 
