@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 from .forms import StudentForm, FacultyForm, UserRegistration
 from django.contrib.auth.forms import UserCreationForm
@@ -53,5 +54,21 @@ def StudentRegistration(request):
     context = {'userform': userform, 'studentform': studentform}
     return render(request, 'student.html', context)
 
-def login(request):
+def loginPage(request):
+    if request.method == 'POST':
+        emailaddress = request.POST.get('emailaddress')
+        password = request.POST.get('password')
+
+        user = authenticate(request, emailaddress = emailaddress, password = password)
+        if user is not None:
+            login(request, user)
+            return redirect ('homePage')
+        else:
+            messages.info (request, 'Email address or Password is incorrect')
+            return render(request, 'sign_in/html')
+
     return render(request, 'sign_in.html')
+
+
+def homePage(request):
+    return render (request,'index.html' )

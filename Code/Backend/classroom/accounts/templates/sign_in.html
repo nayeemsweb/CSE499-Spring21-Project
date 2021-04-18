@@ -42,7 +42,8 @@
                         <h2>Welcome Back</h2>
                         <p>Log In to Your Account!</p>
                         
-                        <form>
+                        <form method = "POST" action="{% url 'loginPage' %}">
+                            {% csrf_token %}
                             <div class="ui search focus mt-15">
                                 <div class="ui left icon input swdh95">
                                     <input class="prompt srch_explore" type="email" name="emailaddress" value=""
@@ -62,6 +63,9 @@
                                     <div class="ui checkbox mncheck">
                                         <input type="checkbox" tabindex="0" class="hidden">
                                         <label>Remember Me</label>
+                                        {% for message in messages %}
+                                        <p>{{message}}</p>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
