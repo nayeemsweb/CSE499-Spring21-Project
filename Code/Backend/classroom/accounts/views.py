@@ -15,9 +15,7 @@ def FacultyRegistration(request):
         userform = UserRegistration(request.POST)
         facultyform = FacultyForm(request.POST)
         if userform.is_valid() and facultyform.is_valid():
-            user = userform.save()
-            pw = user.password
-            user.set_password(pw)
+            user = userform.save()            
             user.save()
             faculty = facultyform.save(commit=False)
             faculty.user = user
@@ -40,8 +38,6 @@ def StudentRegistration(request):
         studentform = StudentForm(request.POST)
         if userform.is_valid() and studentform.is_valid():
             user = userform.save()
-            pw = user.password
-            user.set_password(pw)
             user.save()
             student = studentform.save(commit=False)
             student.user = user
@@ -56,7 +52,7 @@ def StudentRegistration(request):
 
 def loginPage(request):
     if request.method == 'POST':
-        username = request.POST.get('emailaddress')
+        username = request.POST.get('username')
         password = request.POST.get('password')
 
         user = authenticate(request, username = username, password = password)
@@ -66,8 +62,8 @@ def loginPage(request):
         else:
             messages.info (request, 'Email address or Password is incorrect')
             #return render(request, 'sign_in.html')
-
-    return render(request, 'sign_in.html')
+    context = {}
+    return render(request, 'sign_in.html', context)
 
 
 def homePage(request):
