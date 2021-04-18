@@ -22,7 +22,7 @@ def FacultyRegistration(request):
             faculty.user = user
             faculty.save()
             messages.success(request,'Account was created for ' + faculty.user.username)
-            return redirect ('login')
+            return redirect ('loginPage')
     else:
         print (userform.errors, facultyform.errors)
 
@@ -46,7 +46,7 @@ def StudentRegistration(request):
             student.user = user
             student.save()
             messages.success(request,'Account was created for ' + student.user.username)
-            return redirect ('login')
+            return redirect ('loginPage')
     else:
         print (userform.errors, studentform.errors)
 
