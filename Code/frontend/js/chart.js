@@ -1090,7 +1090,7 @@ $(document).ready(function () {
                     pointBorderWidth: 2,
                     pointHoverRadius: 7,
                     pointHoverBorderWidth: 1
-                },{
+                }, {
                     label: "Sad",
                     backgroundColor: "transparent",
                     borderColor: "rgb(82, 96, 227)",
@@ -1104,7 +1104,7 @@ $(document).ready(function () {
                     pointBorderWidth: 2,
                     pointHoverRadius: 7,
                     pointHoverBorderWidth: 1
-                },{
+                }, {
                     label: "Neutral",
                     backgroundColor: "transparent",
                     borderColor: "rgb(9, 181, 41)",
@@ -1175,7 +1175,7 @@ $(document).ready(function () {
             item.addEventListener("click", function () {
                 config.data.datasets[0].data = activityData[index].first;
                 config.data.datasets[1].data = activityData[index].second;
-               
+
                 myLine.update();
             });
         });
