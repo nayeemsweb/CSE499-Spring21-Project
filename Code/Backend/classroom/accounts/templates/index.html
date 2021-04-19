@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'vendor/semantic/semantic.min.css' %}">
 
-    
+
 </head>
 
 <body>
@@ -161,7 +161,7 @@
                                 <img src="images/hd_dp.jpg" alt="">
                                 <div class="pd_content">
                                     <div class="rhte85">
-                                        <h6>Joginder Singh</h6>
+                                        <h6>{{request.user}}</h6>
                                         <div class="mef78" title="Verify">
                                             <!-- <i class='uil uil-check-circle'></i> -->
                                         </div>
@@ -186,7 +186,7 @@
                         <a href="setting.html" class="item channel_item">Setting</a>
                         <a href="help.html" class="item channel_item">Help</a>
                         <a href="feedback.html" class="item channel_item">Send Feedback</a> -->
-                        <a href="sign_in.html" class="item channel_item">Sign Out</a>
+                        <a href="{% url 'logoutUser' %}" class="item channel_item">Sign Out</a>
                     </div>
                 </li>
             </ul>
@@ -297,7 +297,7 @@
     </nav>
 
 
-   
+
 
 
     <div class="wrapper">
@@ -313,9 +313,9 @@
                                             <a href="#" class="fcrse_img">
                                                 <img src="images/courses/img-12.jpg" alt="">
                                                 <div class="course-overlay">
-                                                    
-                                                    
-                                                  
+
+
+
                                                 </div>
                                             </a>
                                             <div class="fcrse_content">
@@ -326,149 +326,149 @@
 
                                                     </div>
                                                 </div>
-                                             
+
                                                 <a href="course_detail_view.html" class="crse14s">Advanced CSS and Sass:
                                                     Flexbox, Grid, Animations and More!</a>
-                                             
+
                                                 <div class="auth1lnkprce">
                                                     <p class="cr1fot">By <a href="#">Rock William</a></p>
-                                                   
-                                                   
+
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="item">
-                        <div class="fcrse_1 mb-20">
-                            <a href="course_detail_view.html" class="fcrse_img">
-                                <img src="images/courses/img-11.jpg" alt="">
-                                <div class="course-overlay">
-                                    
-                                   
                                 </div>
-                            </a>
-                            <div class="fcrse_content">
-                                <div class="eps_dots more_dropdown">
-                                    <a href="#"><i class='uil uil-ellipsis-v'></i></a>
-                                    <div class="dropdown-content">
-                                        <span><i class='uil uil-share-alt'></i>Unenrol</span>
+                                <div class="col-xl-3 col-lg-4 col-md-6">
+                                    <div class="item">
+                                        <div class="fcrse_1 mb-20">
+                                            <a href="course_detail_view.html" class="fcrse_img">
+                                                <img src="images/courses/img-11.jpg" alt="">
+                                                <div class="course-overlay">
 
+
+                                                </div>
+                                            </a>
+                                            <div class="fcrse_content">
+                                                <div class="eps_dots more_dropdown">
+                                                    <a href="#"><i class='uil uil-ellipsis-v'></i></a>
+                                                    <div class="dropdown-content">
+                                                        <span><i class='uil uil-share-alt'></i>Unenrol</span>
+
+                                                    </div>
+                                                </div>
+
+                                                <a href="course_detail_view.html" class="crse14s">The Complete
+                                                    JavaScript Course 2020: Build Real Projects!</a>
+
+                                                <div class="auth1lnkprce">
+                                                    <p class="cr1fot">By <a href="#">Jassica William</a></p>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-xl-3 col-lg-4 col-md-6">
+                                    <div class="item">
+                                        <div class="fcrse_1 mb-20">
+                                            <a href="course_detail_view.html" class="fcrse_img">
+                                                <img src="images/courses/img-14.jpg" alt="">
+                                                <div class="course-overlay">
+
+
+                                                </div>
+                                            </a>
+                                            <div class="fcrse_content">
+                                                <div class="eps_dots more_dropdown">
+                                                    <a href="#"><i class='uil uil-ellipsis-v'></i></a>
+                                                    <div class="dropdown-content">
+                                                        <span><i class='uil uil-share-alt'></i>Unenrol</span>
+                                                    </div>
+                                                </div>
+
+                                                <a href="course_detail_view.html" class="crse14s">Build Responsive Real
+                                                    World Websites with HTML5 and CSS3</a>
+
+                                                <div class="auth1lnkprce">
+                                                    <p class="cr1fot">By <a href="#">John Doe</a></p>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                               
-                                <a href="course_detail_view.html" class="crse14s">The Complete
-                                    JavaScript Course 2020: Build Real Projects!</a>
-                               
-                                <div class="auth1lnkprce">
-                                    <p class="cr1fot">By <a href="#">Jassica William</a></p>
-                                    
-                                   
+                                <div class="col-xl-3 col-lg-4 col-md-6">
+                                    <div class="item">
+                                        <div class="fcrse_1 mb-20">
+                                            <a href="course_detail_view.html" class="fcrse_img">
+                                                <img src="images/courses/img-14.jpg" alt="">
+                                                <div class="course-overlay">
+
+
+                                                </div>
+                                            </a>
+                                            <div class="fcrse_content">
+                                                <div class="eps_dots more_dropdown">
+                                                    <a href="#"><i class='uil uil-ellipsis-v'></i></a>
+                                                    <div class="dropdown-content">
+                                                        <span><i class='uil uil-share-alt'></i>Unenrol</span>
+
+                                                    </div>
+                                                </div>
+
+                                                <a href="course_detail_view.html" class="crse14s">Build Responsive Real
+                                                    World Websites with HTML5 and CSS3</a>
+
+                                                <div class="auth1lnkprce">
+                                                    <p class="cr1fot">By <a href="#">John Doe</a></p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-md-6">
+                                    <div class="item">
+                                        <div class="fcrse_1 mb-20">
+                                            <a href="course_detail_view.html" class="fcrse_img">
+                                                <img src="images/courses/img-14.jpg" alt="">
+                                                <div class="course-overlay">
+
+
+                                                </div>
+                                            </a>
+                                            <div class="fcrse_content">
+                                                <div class="eps_dots more_dropdown">
+                                                    <a href="#"><i class='uil uil-ellipsis-v'></i></a>
+                                                    <div class="dropdown-content">
+                                                        <span><i class='uil uil-share-alt'></i>Unenrol</span>
+
+                                                    </div>
+                                                </div>
+
+                                                <a href="course_detail_view.html" class="crse14s">Build Responsive Real
+                                                    World Websites with HTML5 and CSS3</a>
+
+                                                <div class="auth1lnkprce">
+                                                    <p class="cr1fot">By <a href="#">John Doe</a></p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-</div>
-
-<div class="col-xl-3 col-lg-4 col-md-6">
-    <div class="item">
-        <div class="fcrse_1 mb-20">
-            <a href="course_detail_view.html" class="fcrse_img">
-                <img src="images/courses/img-14.jpg" alt="">
-                <div class="course-overlay">
-                    
-                  
-                </div>
-            </a>
-            <div class="fcrse_content">
-                <div class="eps_dots more_dropdown">
-                    <a href="#"><i class='uil uil-ellipsis-v'></i></a>
-                    <div class="dropdown-content">
-                        <span><i class='uil uil-share-alt'></i>Unenrol</span>
-                    </div>
-                </div>
-               
-                <a href="course_detail_view.html" class="crse14s">Build Responsive Real
-                    World Websites with HTML5 and CSS3</a>
-                
-                <div class="auth1lnkprce">
-                    <p class="cr1fot">By <a href="#">John Doe</a></p>
-
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="col-xl-3 col-lg-4 col-md-6">
-    <div class="item">
-        <div class="fcrse_1 mb-20">
-            <a href="course_detail_view.html" class="fcrse_img">
-                <img src="images/courses/img-14.jpg" alt="">
-                <div class="course-overlay">
-                    
-                   
-                </div>
-            </a>
-            <div class="fcrse_content">
-                <div class="eps_dots more_dropdown">
-                    <a href="#"><i class='uil uil-ellipsis-v'></i></a>
-                    <div class="dropdown-content">
-                        <span><i class='uil uil-share-alt'></i>Unenrol</span>
-
-                    </div>
-                </div>
-                
-                <a href="course_detail_view.html" class="crse14s">Build Responsive Real
-                    World Websites with HTML5 and CSS3</a>
-              
-                <div class="auth1lnkprce">
-                    <p class="cr1fot">By <a href="#">John Doe</a></p>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-xl-3 col-lg-4 col-md-6">
-    <div class="item">
-        <div class="fcrse_1 mb-20">
-            <a href="course_detail_view.html" class="fcrse_img">
-                <img src="images/courses/img-14.jpg" alt="">
-                <div class="course-overlay">
-                    
-                    
-                </div>
-            </a>
-            <div class="fcrse_content">
-                <div class="eps_dots more_dropdown">
-                    <a href="#"><i class='uil uil-ellipsis-v'></i></a>
-                    <div class="dropdown-content">
-                        <span><i class='uil uil-share-alt'></i>Unenrol</span>
-
-                    </div>
-                </div>
-               
-                <a href="course_detail_view.html" class="crse14s">Build Responsive Real
-                    World Websites with HTML5 and CSS3</a>
-             
-                <div class="auth1lnkprce">
-                    <p class="cr1fot">By <a href="#">John Doe</a></p>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-            </div>
-        </div>
-    </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 

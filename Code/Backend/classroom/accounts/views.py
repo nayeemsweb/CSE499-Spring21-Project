@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 from .forms import StudentForm, FacultyForm, UserRegistration
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 
@@ -65,6 +66,10 @@ def loginPage(request):
     context = {}
     return render(request, 'sign_in.html', context)
 
-
+@login_required(login_url='loginPage')
 def homePage(request):
-    return render (request,'index.html' )
+    return render (request,'index.html')
+
+def logoutUser(request):
+    logout(request)
+    return redirect('loginPage')
