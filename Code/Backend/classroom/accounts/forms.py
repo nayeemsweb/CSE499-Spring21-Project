@@ -12,6 +12,7 @@ class StudentForm (forms.ModelForm):
     #    exclude = ['user']
 
 class FacultyForm(forms.ModelForm):
+    bio = forms.CharField(widget= forms.Textarea)
     class Meta:
         model = Faculty
         fields = ['facultyID', 'bio', 'department']
