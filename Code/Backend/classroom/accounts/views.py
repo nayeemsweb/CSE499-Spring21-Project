@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 from .forms import StudentForm, FacultyForm, UserRegistration
@@ -17,7 +17,9 @@ def FacultyRegistration(request):
         userform = UserRegistration(request.POST)
         facultyform = FacultyForm(request.POST)
         if userform.is_valid() and facultyform.is_valid():
-            user = userform.save()            
+            user = userform.save()
+            group = Group.objects.get(name ='Faculty')
+            user.groups.add(group)          
             user.save()
             faculty = facultyform.save(commit=False)
             faculty.user = user
@@ -40,6 +42,8 @@ def StudentRegistration(request):
         studentform = StudentForm(request.POST)
         if userform.is_valid() and studentform.is_valid():
             user = userform.save()
+            group = Group.objects.get(name ='Student')
+            user.groups.add(group) 
             user.save()
             student = studentform.save(commit=False)
             student.user = user
@@ -71,9 +75,14 @@ def loginPage(request):
     return render(request, 'sign_in.html', context)
 
 @login_required(login_url='loginPage')
+@student_only
 def homePage(request):
     return render (request,'index.html')
 
 def logoutUser(request):
     logout(request)
     return redirect('loginPage')
+
+@login_required(login_url='loginPage')
+def facultyDashboard(request):
+    return render(request, 'instructor_dashboard.html')
