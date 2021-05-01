@@ -6,7 +6,7 @@
 
 <div class="tab-pane fade show active" id="instructor-signup-tab" role="tabpanel" aria-labelledby="instructor-tab">
     <p>Sign Up and Create your Profile !<br>Are you a <b>Faculty/Instructor</b>? <a href="{% url 'faculty' %}">Click Here</a></p>
-    <form action="{% url 'student' %}" method="POST">
+    <form action="{% url 'student' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{userform|crispy}}
         {{studentform|crispy}}

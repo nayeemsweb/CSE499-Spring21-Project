@@ -15,7 +15,7 @@ def FacultyRegistration(request):
 
     if request.method == 'POST':
         userform = UserRegistration(request.POST)
-        facultyform = FacultyForm(request.POST)
+        facultyform = FacultyForm(request.POST, request.FILES)
         if userform.is_valid() and facultyform.is_valid():
             user = userform.save()
             group = Group.objects.get(name ='Faculty')
@@ -39,7 +39,7 @@ def StudentRegistration(request):
 
     if request.method == 'POST':
         userform = UserRegistration(request.POST)
-        studentform = StudentForm(request.POST)
+        studentform = StudentForm(request.POST, request.FILES)
         if userform.is_valid() and studentform.is_valid():
             user = userform.save()
             group = Group.objects.get(name ='Student')
