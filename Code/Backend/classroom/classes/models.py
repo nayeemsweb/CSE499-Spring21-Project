@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
-from ..accounts.models import *
+from accounts.models import Faculty
 
 class Classroom (models.Model):
-    facultyID=models.ForeignKey(Faculty.facultyID)
+    facultyiD=models.OneToOneField(Faculty, on_delete= models.CASCADE)
     class_code=models.CharField(max_length=20)
     class_pics=models.ImageField(null=True, blank=True)
     course_title=models.CharField(max_length=20)
@@ -20,7 +20,7 @@ class Post (models.Model):
     userID=models.CharField(max_length=20)
 
 class Comments(models.Model):
-    postID=models.ForeignKey(Post)
+    postID=models.ForeignKey(Post, on_delete= models.CASCADE)
     comments=models.CharField(max_length=1000)
     userID=models.CharField(max_length=20)
 
