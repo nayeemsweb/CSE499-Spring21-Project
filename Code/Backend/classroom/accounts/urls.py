@@ -1,4 +1,5 @@
 from django.urls import path
+from django.urls.conf import include
 from .import views
 
 urlpatterns =[
@@ -8,4 +9,5 @@ urlpatterns =[
    path('homePage',views.homePage, name='homePage'),
    path('logoutUser', views.logoutUser, name='logoutUser'),
    path('facultyDashboard',views.facultyDashboard, name='facultyDashboard'),
+   path('createCourse',include('classes.urls')),
 ]
