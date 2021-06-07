@@ -3,11 +3,10 @@ from django.urls.conf import include
 from .import views
 
 urlpatterns =[
-   path('',views.FacultyRegistration, name='faculty'),
-   path('student', views.StudentRegistration, name='student'),
+   path('signup/facutly',views.FacultyRegistration, name='faculty'),
+   path('signup/student', views.StudentRegistration, name='student'),
    path('loginPage',views.loginPage, name='loginPage'),
-   path('homePage',views.homePage, name='homePage'),
+   path('',views.homePage, name='homePage'),
    path('logoutUser', views.logoutUser, name='logoutUser'),
    path('facultyDashboard',views.facultyDashboard, name='facultyDashboard'),
-   path('createCourse',include('classes.urls')),
 ]

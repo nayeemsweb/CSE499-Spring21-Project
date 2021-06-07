@@ -3,6 +3,5 @@ from django.urls.conf import include
 from .import views
 
 urlpatterns =[
-   path('',views.createCourse,name='createCourse'),
- 
+   path('create',views.createCourse,name='createCourse'),
 ]
