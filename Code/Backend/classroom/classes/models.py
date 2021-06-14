@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from accounts.models import Faculty
 import uuid
 class Classroom (models.Model):
-    facultyiD=models.OneToOneField(User, null=True, blank= True, on_delete= models.CASCADE)
+    facultyiD=models.ForeignKey(Faculty,on_delete=models.CASCADE,default=None)
     # facultyiD=models.OneToOneField(Faculty, on_delete= models.CASCADE)
     class_codes=models.UUIDField(
          primary_key = True,
@@ -14,6 +14,7 @@ class Classroom (models.Model):
     course_title=models.CharField(max_length=20)
     course_subtitle=models.CharField(max_length=20,null=True)
     course_description=models.CharField(max_length=500,null=True)
+    course_section = models.CharField(max_length=3,null=True)
     # class Meta:
     #     db_table="Classes"
     # def __str__(self):
