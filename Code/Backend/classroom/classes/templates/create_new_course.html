@@ -1,4 +1,6 @@
 ﻿{% load static %}
+{% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -327,6 +329,7 @@
 										</a>
 									</li> -->
 								</ul>
+								
 								<div class="step-content">
 									<div class="step-tab-panel step-tab-info active" id="tab_step1">
 										<div class="tab-from-content">
@@ -338,6 +341,9 @@
 												<div class="general_info10">
 													<div class="row">
 														<div class="col-lg-6 col-md-6">
+										<form action="" method="post"> {%csrf_token%}
+											<!-- {{classform|crispy}} -->
+											
 															<div class="ui search focus mt-30 lbel25">
 																<label>Course Title*</label>
 																<div class="ui left icon input swdh19">
@@ -348,6 +354,7 @@
 																	<div class="badge_num">60</div>
 																</div>
 															</div>
+														
 														</div>
 														<div class="col-lg-6 col-md-6">
 															<div class="ui search focus mt-30 lbel25">
@@ -434,6 +441,7 @@
 																			<div class="custom-file">
 																				<input type="file"
 																					class="custom-file-input"
+																					name="inputGroupFile04"
 																					id="inputGroupFile04">
 																				<label class="custom-file-label"
 																					for="inputGroupFile04">No Choose
@@ -779,11 +787,14 @@
 										</div>
 									</div>
 								</div>
+								
 								<div class="step-footer step-tab-pager">
 									<button data-direction="prev" class="btn btn-default steps_btn">PREVIOUS</button>
 									<button data-direction="next" class="btn btn-default steps_btn">Next</button>
-									<button data-direction="finish" class="btn btn-default steps_btn">Submit</button>
+									<!-- <button data-direction="finish" class="btn btn-default steps_btn">Submit</button> -->
+									<input type="submit" value="Save">
 								</div>
+							</form>
 							</div>
 						</div>
 					</div>

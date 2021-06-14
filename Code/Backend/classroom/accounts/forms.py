@@ -18,7 +18,6 @@ class FacultyForm(forms.ModelForm):
         fields = ['facultyID', 'bio', 'department','profile_pic']
 
 class UserRegistration(UserCreationForm):
-
     class Meta:
         model = User
         fields = ['username', 'email', 'password1' ]
