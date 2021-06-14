@@ -3,8 +3,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from accounts.models import Faculty
 import uuid
+import random
+import string
 class Classroom (models.Model):
-    facultyiD=models.ForeignKey(Faculty,on_delete=models.CASCADE,default=None)
+    faculty=models.ForeignKey(User,on_delete=models.CASCADE,default=None)
     # facultyiD=models.OneToOneField(Faculty, on_delete= models.CASCADE)
     class_codes=models.UUIDField(
          primary_key = True,
@@ -15,6 +17,19 @@ class Classroom (models.Model):
     course_subtitle=models.CharField(max_length=20,null=True)
     course_description=models.CharField(max_length=500,null=True)
     course_section = models.CharField(max_length=3,null=True)
+
+    class_code = models.CharField(max_length=6, null=True, blank=True, unique=True)
+
+    def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+        return ''.join(random.choice(chars) for _ in range(size))
+
+    def save(self):
+        if not self.class_codes:
+            # Generate ID once, then check the db. If exists, keep trying.
+            self.class_codes = id_generator()
+            while Classroom.objects.filter(urlhash=self.class_codes).exists():
+                self.class_codes = id_generator()
+        super(Classroom, self).save()
     # class Meta:
     #     db_table="Classes"
     # def __str__(self):

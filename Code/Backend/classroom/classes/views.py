@@ -13,7 +13,7 @@ def createCourse(request):
     # classform=ClassroomForm(request.POST or None)
     if request.method=="POST":
         classforms=Classroom()
-        classforms.facultyiD=request.user
+        classforms.faculty=request.user
         classforms.course_title=request.POST.get('title')
         classforms.course_subtitle=request.POST.get('subtitle')
         classforms.course_description=request.POST.get('description')
