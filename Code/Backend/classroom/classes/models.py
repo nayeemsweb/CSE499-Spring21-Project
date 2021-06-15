@@ -26,9 +26,9 @@ class Classroom (models.Model):
     def save(self):
         if not self.class_codes:
             # Generate ID once, then check the db. If exists, keep trying.
-            self.class_codes = id_generator()
+            self.class_codes = self.id_generator()
             while Classroom.objects.filter(urlhash=self.class_codes).exists():
-                self.class_codes = id_generator()
+                self.class_codes = self.id_generator()
         super(Classroom, self).save()
     # class Meta:
     #     db_table="Classes"
