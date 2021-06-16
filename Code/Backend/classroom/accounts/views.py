@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .decorators import *
+from classes.models import Classroom,Comment,Post
 
 @unauthenticated_user
 def FacultyRegistration(request):
@@ -85,4 +86,8 @@ def logoutUser(request):
 
 @login_required(login_url='loginPage')
 def facultyDashboard(request):
-    return render(request, 'instructor_dashboard.html')
+    classroom = Classroom.objects.all()
+    context={
+        'classroom' : classroom
+    }
+    return render(request, 'instructor_dashboard.html',context)
