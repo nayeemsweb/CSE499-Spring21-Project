@@ -14,9 +14,10 @@
                 <div class="col-xl-3 col-lg-6 col-md-6">
                     <div class="card_dash">
                         <div class="card_dash_left">
+                            
                             <h5>Total Enroll</h5>
                             <h2>1500</h2>
-
+                           
                         </div>
                         <div class="card_dash_right">
                             <img src="images/dashboard/graduation-cap.svg" alt="">
@@ -27,8 +28,9 @@
                     <div class="card_dash">
                         <div class="card_dash_left">
                             <h5>Total Courses</h5>
-                            <h2>4</h2>
-
+                            
+                            <h2>{{class_count}}</h2>
+                            
                         </div>
                         <div class="card_dash_right">
                             <img src="images/dashboard/online-course.svg" alt="">
@@ -48,102 +50,67 @@
                     </div>
                 </div>
             </div>
+           
             <div class="row">
                 <div class="col">
                     <div class="section3125 mt-50">
                         <h4 class="item_title">Your Courses</h4>
-                        <div class="la5lo1">
-                            <div class="owl-carousel courses_performance owl-theme">
+                        <div class="col">
+                        <div class="la5lo1" style="display:flex;">
+                          
+                            {% for class in classroom %}
+                            {% if class.faculty == user %}
+                            <div class="col-xl-3 col-lg-4 col-md-6" >
                                 <div class="item">
-                                    <div class="fcrse_1">
+                                    <div class="fcrse_1 mb-20">
                                         <a href="#" class="fcrse_img">
-                                            <img src="images/courses/img-1.jpg" alt="">
-                                            <div class="course-overlay"></div>
+                                            
+                                            <img src="{{class.class_pics}}" alt="">
+                                            <!-- <div class="course-overlay">
+                                                
+                                                
+                                              
+                                            </div> -->
                                         </a>
                                         <div class="fcrse_content">
+                                            <div class="eps_dots more_dropdown">
+                                                <a href="#"><i class='uil uil-ellipsis-v'></i></a>
+                                                <div class="dropdown-content">
+                                                    <span><i class='uil uil-share-alt'></i>Unenrol</span>
 
-                                            <a href="#" class="crsedt145">Complete Python Bootcamp: Go from zero to
-                                                hero in Python 3</a>
-
-                                            <div class="auth1lnkprce">
-                                                <a href="#" class="cr1fot50">Go to course analytics</a>
-                                                <a href="#" class="cr1fot50">See comments (875)</a>
-                                                <a href="#" class="cr1fot50">See Reviews (105)</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="fcrse_1">
-                                        <a href="#" class="fcrse_img">
-                                            <img src="images/courses/img-1.jpg" alt="">
-                                            <div class="course-overlay"></div>
-                                        </a>
-                                        <div class="fcrse_content">
-
-                                            <a href="#" class="crsedt145">Complete Python Bootcamp: Go from zero to
-                                                hero in Python 3</a>
-
+                                         
+                                            <a href="course_detail_view.html" class="crse14s">{{class.course_title}}</a>
+                                         
                                             <div class="auth1lnkprce">
-                                                <a href="#" class="cr1fot50">Go to course analytics</a>
-                                                <a href="#" class="cr1fot50">See comments (875)</a>
-                                                <a href="#" class="cr1fot50">See Reviews (105)</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="fcrse_1">
-                                        <a href="#" class="fcrse_img">
-                                            <img src="images/courses/img-2.jpg" alt="">
-                                            <div class="course-overlay"></div>
-                                        </a>
-                                        <div class="fcrse_content">
-
-                                            <a href="#" class="crse14s">The Complete JavaScript Course 2020: Build
-                                                Real Projects!</a>
-
-                                            <div class="auth1lnkprce">
-                                                <a href="#" class="cr1fot50">Go to course analytics</a>
-                                                <a href="#" class="cr1fot50">See comments (915)</a>
-                                                <a href="#" class="cr1fot50">See Reviews (255)</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="fcrse_1">
-                                        <a href="#" class="fcrse_img">
-                                            <img src="images/courses/img-3.jpg" alt="">
-                                            <div class="course-overlay"></div>
-                                        </a>
-                                        <div class="fcrse_content">
-
-                                            <a href="#" class="crse14s">Beginning C++ Programming - From Beginner to
-                                                Beyond</a>
-
-                                            <div class="auth1lnkprce">
-                                                <a href="#" class="cr1fot50">Go to course analytics</a>
-                                                <a href="#" class="cr1fot50">See comments (155)</a>
-                                                <a href="#" class="cr1fot50">See Reviews (15)</a>
+                                                <p class="cr1fot"> <a href="#">{{class.course_subtitle}}</p>
+                                               
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            {% endif %}         
+                        {% endfor %}
                         </div>
+                        
                     </div>
-                </div>
-
+               
+                    
+            </div>
+        </div>
+    </div>
                 <div class="col-xl-4 col-lg-6 col-md-6">
 
 
 
                 </div>
+                
             </div>
         </div>
     </div>
-
+    
     
     <div class="container">     
               
@@ -158,7 +125,7 @@
               </div>
             </div>
          -->
-         <table class="table table-dark">
+         <!-- <table class="table table-dark">
             <thead >
               <tr>
                 <th scope="col">Title</th>
@@ -168,8 +135,7 @@
                 <th scope="col">Details</th>
               </tr>
             </thead>
-            {% for class in classroom %}
-            {% if class.faculty == user %}
+           
             <tbody>
               <tr>
                 <th scope="row">{{class.course_title}}</th>
@@ -180,9 +146,8 @@
               </tr>            
         </tbody>
       </table>
-        
-        {% endif %}         
-        {% endfor %}
+         -->
+       
 </div>
 
 
