@@ -87,7 +87,7 @@ def logoutUser(request):
 @login_required(login_url='loginPage')
 def facultyDashboard(request):
     classroom = Classroom.objects.all()
-    class_count=Classroom.objects.count()
+    class_count=Classroom.objects.filter(faculty=request.user).count()
     context={
         'classroom' : classroom,'class_count':class_count
     }
