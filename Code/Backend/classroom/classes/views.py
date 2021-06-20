@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate, login, logout
 from .forms import ClassroomForm
 from django.contrib import messages
@@ -22,3 +22,8 @@ def createCourse(request):
     else:    
         context = {'classform':classform}
         return render(request,'create_new_course.html',context)
+
+def courseDetail(request,pk):
+    course_detail = Classroom.objects.get(class_codes = pk)
+    context ={'course_detail':course_detail}
+    return render(request,'course_detail_view.html',context)

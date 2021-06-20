@@ -81,10 +81,11 @@
                                                 </div>
                                             </div>
                                          
-                                            <a href="course_detail_view.html" class="crse14s">{{class.course_title}} Section{{class.course_section}} </a>
+                                            <a href="{% url 'course_detail' class.pk %}" class="crse14s">Click For Details </a>
                                          
                                             <div class="auth1lnkprce">
-                                            <p class="cr1fot"> <a href="#">Course Name: {{class.course_subtitle}} <br>Class Time: {{class.class_time}}<br>Class code: {{class.class_code}}</p>
+                                            <p class="cr1fot"> Course Title: {{class.course_title}} <br>Section: {{class.course_section}}</p>
+                                            <p class="cr1fot"> Course Name: {{class.course_subtitle}} <br>Class Time: {{class.class_time}}<br>Class code: {{class.class_code}}</p>
                                                 
                                             </div>
                                         </div>
