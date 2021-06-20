@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate, login, logout
 from .forms import ClassroomForm
 from django.contrib import messages
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import redirect, render
 from classes.models import Classroom
 from django.contrib.auth.models import User
@@ -27,3 +27,10 @@ def courseDetail(request,pk):
     course_detail = Classroom.objects.get(class_codes = pk)
     context ={'course_detail':course_detail}
     return render(request,'course_detail_view.html',context)
+
+def courseDelete(request,pk):
+    course = get_object_or_404(Classroom, class_codes=pk)
+    if course.faculty != request.user:
+        raise Http404()
+    course.delete()
+    return redirect('facultyDashboard')
