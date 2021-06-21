@@ -332,7 +332,7 @@
                                         <span class="_215b04">The course you need to learn {{course_detail.course_subtitle}}  and More!</span>
                                     </div>
                                     {% if course_detail.faculty == request.user %}
-                                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="#">Update</a>                                    
+                                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'course_edit' course_detail.pk %}">Update</a>                                    
                                     <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'course_delete' course_detail.pk %}">Delete</a>
                                     {% endif %}
                                     <div class="_215b06">

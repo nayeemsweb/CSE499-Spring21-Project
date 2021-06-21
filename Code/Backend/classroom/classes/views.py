@@ -34,3 +34,18 @@ def courseDelete(request,pk):
         raise Http404()
     course.delete()
     return redirect('facultyDashboard')
+
+def courseEdit(request,pk):
+    PreviousCourse = Classroom.objects.get(class_codes=pk)
+    courseForm= ClassroomForm(instance=PreviousCourse)
+
+    if request.method == 'POST':
+        courseForm = ClassroomForm(request.POST, instance=PreviousCourse)
+        if courseForm.is_valid():                        
+            courseForm.save()
+            return redirect ('/')
+
+    
+    context = {'courseForm':courseForm}
+
+    return render(request,'course_edit_view.html',context)
