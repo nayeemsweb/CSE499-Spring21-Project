@@ -60,5 +60,5 @@ class Comment(models.Model):
 #          editable = False)
 
 class student_classroom(models.Model):
-    student_id=models.ForeignKey(User,on_delete=models.CASCADE,default=None)
-    class_code=models.ForeignKey(Classroom,on_delete=models.CASCADE)
+    student = models.ForeignKey(Student,on_delete=models.SET_NULL,null=True)
+    classroom = models.ForeignKey(Classroom,on_delete=models.CASCADE)
