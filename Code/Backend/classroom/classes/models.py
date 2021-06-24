@@ -1,7 +1,7 @@
 from django import db
 from django.db import models
 from django.contrib.auth.models import User
-from accounts.models import Faculty
+from accounts.models import Faculty,Student
 import uuid
 import random
 import string
@@ -59,4 +59,6 @@ class Comment(models.Model):
 #          default = uuid.uuid4,
 #          editable = False)
 
-
+class student_classroom(models.Model):
+    student_id=models.ForeignKey(User,on_delete=models.CASCADE,default=None)
+    class_code=models.ForeignKey(Classroom,on_delete=models.CASCADE)

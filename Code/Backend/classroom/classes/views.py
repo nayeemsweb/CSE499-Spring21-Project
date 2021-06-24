@@ -49,3 +49,10 @@ def courseEdit(request,pk):
     context = {'courseForm':courseForm}
 
     return render(request,'course_edit_view.html',context)
+
+def joinclass(request):
+    
+    if request.method == 'POST':
+        return redirect ('index')
+    else:    
+        return render(request,'join_class.html')
