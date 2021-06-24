@@ -62,3 +62,5 @@ class Comment(models.Model):
 class student_classroom(models.Model):
     student = models.ForeignKey(Student,on_delete=models.SET_NULL,null=True)
     classroom = models.ForeignKey(Classroom,on_delete=models.CASCADE)
+
+    

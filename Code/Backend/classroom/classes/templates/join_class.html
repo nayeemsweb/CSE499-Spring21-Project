@@ -8,11 +8,12 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 
-                <form action="" method="post">
+                <form action="{% url 'join_class' %}" method="POST">
+                    {%csrf_token%}
                     <label style="display: block;" for=""><h3>Enter Your Class Code</h3></label>
                     <input style="width: 250px; height: 30px;" type="text" name="class_code">
                     <div style="padding-top: 5px;">
-                        <a class="btn btn-danger" href="">Submit</a>
+                        <button class="btn btn-danger" type="submit"> Submit</button>
 
                     </div>
                 </form>

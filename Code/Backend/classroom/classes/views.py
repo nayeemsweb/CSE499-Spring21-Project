@@ -5,8 +5,9 @@ from .forms import ClassroomForm
 from django.contrib import messages
 from django.http import HttpResponse, Http404
 from django.shortcuts import redirect, render
-from classes.models import Classroom
+from classes.models import Classroom, student_classroom
 from django.contrib.auth.models import User
+from accounts.models import Student,Faculty
 
 def createCourse(request):
     classform = ClassroomForm()
@@ -51,8 +52,14 @@ def courseEdit(request,pk):
     return render(request,'course_edit_view.html',context)
 
 def joinclass(request):
-    
+
     if request.method == 'POST':
-        return redirect ('index')
-    else:    
+        #print(request.POST['class_code'],"===============")
+        joining_code=request.POST['class_code']
+        course = Classroom.objects.filter(class_code=joining_code).first()
+        NewStudent = Student.objects.filter(user=request.user).first()
+        if course:
+            student_classroom.objects.get_or_create(student=NewStudent, classroom=course)
+        return redirect ('homePage')
+    else:
         return render(request,'join_class.html')
