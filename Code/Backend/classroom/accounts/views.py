@@ -85,16 +85,19 @@ def homePage(request):
 @login_required(login_url='loginPage')
 @student_only
 def studentProfile(request,pk):
-    previousInfo = Student.objects.get(id = pk)
-    newForm = StudentForm(instance=previousInfo)
+    previousStudentInfo = Student.objects.get(id = pk)
+    newStudentForm = StudentForm(instance=previousStudentInfo)
+    newUserForm = UserRegistration(instance=request.user)
 
     if request.method =='POST':
-        newForm = StudentForm(request.POST, request.FILES, instance=previousInfo)
-        if newForm.is_valid():
-            newForm.save()
+        newUserForm = UserRegistration(request.POST, instance= request.user)
+        newStudentForm = StudentForm(request.POST, request.FILES, instance= previousStudentInfo)
+        if newUserForm.is_valid() and newStudentForm.is_valid():
+            newUserForm.save()
+            newStudentForm.save()
             return redirect ('/')
     else:
-        context = {'newForm':newForm}
+        context = {'newUserForm':newUserForm,'newStudentForm':newStudentForm}
         return render(request,'student_profile_view.html',context)
 
 
@@ -109,16 +112,19 @@ def facultyDashboard(request):
 
 @login_required(login_url='loginPage')
 def facultyProfile(request,pk):
-    previousInfo = Faculty.objects.get(id = pk)
-    newForm = FacultyForm(instance=previousInfo)
+    previousFacultyInfo = Faculty.objects.get(id = pk)
+    newFacultyForm = FacultyForm(instance=previousFacultyInfo)
+    newUserForm = UserRegistration(instance=request.user)
 
     if request.method =='POST':
-        newForm = FacultyForm(request.POST, request.FILES, instance=previousInfo)
-        if newForm.is_valid():
-            newForm.save()
+        newUserForm = UserRegistration(request.POST, instance= request.user)
+        newFacultyForm = FacultyForm(request.POST, request.FILES, instance= previousFacultyInfo)
+        if newUserForm.is_valid() and newFacultyForm.is_valid():
+            newUserForm.save()
+            newFacultyForm.save()
             return redirect ('/')
     else:
-        context = {'newForm':newForm}
+        context = {'newUserForm':newUserForm,'newFacultyForm':newFacultyForm}
         return render(request,'faculty_profile_view.html',context)
 
 
