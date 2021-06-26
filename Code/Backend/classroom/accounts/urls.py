@@ -9,4 +9,6 @@ urlpatterns =[
    path('',views.homePage, name='homePage'),
    path('logoutUser', views.logoutUser, name='logoutUser'),
    path('facultyDashboard',views.facultyDashboard, name='facultyDashboard'),
+   path('facultyProfile/<int:pk>/',views.facultyProfile,name='facultyProfile'),
+   path('studentProfile/<int:pk>/',views.studentProfile ,name='studentProfile'),
 ]

@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.contrib.auth.models import User, Group
+from .models import Student, Faculty
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect, render
 from .forms import StudentForm, FacultyForm, UserRegistration
@@ -80,9 +81,22 @@ def loginPage(request):
 def homePage(request):
     return render (request,'index.html')
 
-def logoutUser(request):
-    logout(request)
-    return redirect('loginPage')
+
+@login_required(login_url='loginPage')
+@student_only
+def studentProfile(request,pk):
+    previousInfo = Student.objects.get(id = pk)
+    newForm = StudentForm(instance=previousInfo)
+
+    if request.method =='POST':
+        newForm = StudentForm(request.POST, request.FILES, instance=previousInfo)
+        if newForm.is_valid():
+            newForm.save()
+            return redirect ('/')
+    else:
+        context = {'newForm':newForm}
+        return render(request,'student_profile_view.html',context)
+
 
 @login_required(login_url='loginPage')
 def facultyDashboard(request):
@@ -92,3 +106,22 @@ def facultyDashboard(request):
         'classroom' : classroom,'class_count':class_count
     }
     return render(request, 'instructor_dashboard.html',context)
+
+@login_required(login_url='loginPage')
+def facultyProfile(request,pk):
+    previousInfo = Faculty.objects.get(id = pk)
+    newForm = FacultyForm(instance=previousInfo)
+
+    if request.method =='POST':
+        newForm = FacultyForm(request.POST, request.FILES, instance=previousInfo)
+        if newForm.is_valid():
+            newForm.save()
+            return redirect ('/')
+    else:
+        context = {'newForm':newForm}
+        return render(request,'faculty_profile_view.html',context)
+
+
+def logoutUser(request):
+    logout(request)
+    return redirect('loginPage')
