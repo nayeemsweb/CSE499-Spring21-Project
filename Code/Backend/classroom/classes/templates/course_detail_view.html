@@ -167,10 +167,15 @@
                     <a href="#" class="opts_account" title="Account">
                         <img src="images/hd_dp.jpg" alt="">
                     </a>
+
                     <div class="menu dropdown_account">
                         <div class="channel_my">
                             <div class="profile_link">
+                                {% if course_detail.faculty == request.user %}
                                 <img src={{request.user.faculty.profile_pic.url}}  alt="">
+                                {% else %}
+                                <img src={{request.user.student.profile_pic.url}}  alt="">
+                                {% endif %}
                                 <div class="pd_content">
                                     <div class="rhte85">
                                         <h6>{{request.user}}</h6>

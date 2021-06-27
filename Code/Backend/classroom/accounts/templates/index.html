@@ -18,23 +18,17 @@
                                     <div class="mb-20 fcrse_1">
                                         <a href="#" class="fcrse_img">
                                             <img src="{{class.classroom.class_pics.url}}" alt="">
-                                            <div class="course-overlay">
-
-
-
-                                            </div>
+                                            
                                         </a>
                                         <div class="fcrse_content">
                                             <div class="eps_dots more_dropdown">
                                                 <a href="#"><i class='uil uil-ellipsis-v'></i></a>
                                                 <div class="dropdown-content">
                                                     <span><i class='uil uil-share-alt'></i>Unenroll</span>
-
                                                 </div>
                                             </div>
-
                                             
-                                            <a href="course_detail_view.html" class="crse14s">{{class.classroom.course_title}} Section: {{class.classroom.course_section}}</a>
+                                            <a href="{% url 'course_detail' class.classroom.class_codes %}" class="crse14s">{{class.classroom.course_title}} Section: {{class.classroom.course_section}}<br>{{class.classroom.class_time}}</a>
 
                                             <div class="auth1lnkprce">
                                                 <p class="cr1fot">By {{class.classroom.faculty}} </p>
@@ -43,9 +37,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                
+                                </div>                                
                             </div>
+
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="item">
                                     <div class="mb-20 fcrse_1">
@@ -108,6 +102,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="item">
                                     <div class="mb-20 fcrse_1">
@@ -138,6 +133,8 @@
                                     </div>
                                 </div>
                             </div>
+
+
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="item">
                                     <div class="mb-20 fcrse_1">
@@ -168,6 +165,8 @@
                                     </div>
                                 </div>
                             </div>
+
+                            
                         </div>
                     </div>
                 </div>
