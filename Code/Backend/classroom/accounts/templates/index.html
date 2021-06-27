@@ -3,6 +3,9 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+
+{% for class in classroom %}
+{% if class.Student == student %}
 <div class="wrapper">
     <div class="sa4d25">
         <div class="container-fluid">
@@ -14,7 +17,7 @@
                                 <div class="item">
                                     <div class="mb-20 fcrse_1">
                                         <a href="#" class="fcrse_img">
-                                            <img src="images/courses/img-12.jpg" alt="">
+                                            <img src="{{class.classroom.class_pics.url}}" alt="">
                                             <div class="course-overlay">
 
 
@@ -25,23 +28,23 @@
                                             <div class="eps_dots more_dropdown">
                                                 <a href="#"><i class='uil uil-ellipsis-v'></i></a>
                                                 <div class="dropdown-content">
-                                                    <span><i class='uil uil-share-alt'></i>Unenrol</span>
+                                                    <span><i class='uil uil-share-alt'></i>Unenroll</span>
 
                                                 </div>
                                             </div>
 
-                                            <a href="course_detail_view.html" class="crse14s">Advanced CSS and Sass:
-                                                Flexbox, Grid, Animations and More!</a>
+                                            
+                                            <a href="course_detail_view.html" class="crse14s">{{class.classroom.course_title}} Section: {{class.classroom.course_section}}</a>
 
                                             <div class="auth1lnkprce">
-                                                <p class="cr1fot">By <a href="#">Rock William</a></p>
-
+                                                <p class="cr1fot">By {{class.classroom.faculty}} </p>
+                                                
 
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
+                                
                             </div>
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="item">
@@ -172,5 +175,6 @@
         </div>
     </div>
 </div>
-
+{% endif %}
+{% endfor %}
 {% endblock %}
