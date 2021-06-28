@@ -4,8 +4,7 @@
 {% block content %}
 
 
-{% for class in classroom %}
-{% if class.Student == student %}
+
 <div class="wrapper">
     <div class="sa4d25">
         <div class="container-fluid">
@@ -13,11 +12,14 @@
                 <div class="col-md-12">
                     <div class="_14d25">
                         <div class="row">
+                            {% for class in classroom %}
+                            {% if class.Student == student %}
+                            
                             <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="item">
                                     <div class="mb-20 fcrse_1">
-                                        <a href="#" class="fcrse_img">
-                                            <img src="{{class.classroom.class_pics.url}}" alt="">
+                                        <a href="#" class="fcrse_img" >
+                                            <img src="{{class.classroom.class_pics.url}}" style="width: 300px; height: 150px; margin-left: auto; margin-right: auto;" alt="">
                                             
                                         </a>
                                         <div class="fcrse_content">
@@ -28,7 +30,7 @@
                                                 </div>
                                             </div>
                                             
-                                            <a href="{% url 'course_detail' class.classroom.class_codes %}" class="crse14s">{{class.classroom.course_title}} Section: {{class.classroom.course_section}}<br>{{class.classroom.class_time}}</a>
+                                            <a href="{% url 'course_detail' class.classroom.class_codes %}" class="crse14s"><h3>{{class.classroom.course_title}}</h3> Section: {{class.classroom.course_section}}<br><p style="color: black;">{{class.classroom.class_time}}</p></a>
 
                                             <div class="auth1lnkprce">
                                                 <p class="cr1fot">By {{class.classroom.faculty}} </p>
@@ -39,8 +41,9 @@
                                     </div>
                                 </div>                                
                             </div>
-
-                            <div class="col-xl-3 col-lg-4 col-md-6">
+                            {% endif %}
+                            {% endfor %}
+                            <!-- <div class="col-xl-3 col-lg-4 col-md-6">
                                 <div class="item">
                                     <div class="mb-20 fcrse_1">
                                         <a href="course_detail_view.html" class="fcrse_img">
@@ -71,100 +74,9 @@
                                     </div>
                                 </div>
 
-                            </div>
+                            </div> -->
 
-                            <div class="col-xl-3 col-lg-4 col-md-6">
-                                <div class="item">
-                                    <div class="mb-20 fcrse_1">
-                                        <a href="course_detail_view.html" class="fcrse_img">
-                                            <img src="images/courses/img-14.jpg" alt="">
-                                            <div class="course-overlay">
-
-
-                                            </div>
-                                        </a>
-                                        <div class="fcrse_content">
-                                            <div class="eps_dots more_dropdown">
-                                                <a href="#"><i class='uil uil-ellipsis-v'></i></a>
-                                                <div class="dropdown-content">
-                                                    <span><i class='uil uil-share-alt'></i>Unenrol</span>
-                                                </div>
-                                            </div>
-
-                                            <a href="course_detail_view.html" class="crse14s">Build Responsive Real
-                                                World Websites with HTML5 and CSS3</a>
-
-                                            <div class="auth1lnkprce">
-                                                <p class="cr1fot">By <a href="#">John Doe</a></p>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-3 col-lg-4 col-md-6">
-                                <div class="item">
-                                    <div class="mb-20 fcrse_1">
-                                        <a href="course_detail_view.html" class="fcrse_img">
-                                            <img src="images/courses/img-14.jpg" alt="">
-                                            <div class="course-overlay">
-
-
-                                            </div>
-                                        </a>
-                                        <div class="fcrse_content">
-                                            <div class="eps_dots more_dropdown">
-                                                <a href="#"><i class='uil uil-ellipsis-v'></i></a>
-                                                <div class="dropdown-content">
-                                                    <span><i class='uil uil-share-alt'></i>Unenrol</span>
-
-                                                </div>
-                                            </div>
-
-                                            <a href="course_detail_view.html" class="crse14s">Build Responsive Real
-                                                World Websites with HTML5 and CSS3</a>
-
-                                            <div class="auth1lnkprce">
-                                                <p class="cr1fot">By <a href="#">John Doe</a></p>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-xl-3 col-lg-4 col-md-6">
-                                <div class="item">
-                                    <div class="mb-20 fcrse_1">
-                                        <a href="course_detail_view.html" class="fcrse_img">
-                                            <img src="images/courses/img-14.jpg" alt="">
-                                            <div class="course-overlay">
-
-
-                                            </div>
-                                        </a>
-                                        <div class="fcrse_content">
-                                            <div class="eps_dots more_dropdown">
-                                                <a href="#"><i class='uil uil-ellipsis-v'></i></a>
-                                                <div class="dropdown-content">
-                                                    <span><i class='uil uil-share-alt'></i>Unenrol</span>
-
-                                                </div>
-                                            </div>
-
-                                            <a href="course_detail_view.html" class="crse14s">Build Responsive Real
-                                                World Websites with HTML5 and CSS3</a>
-
-                                            <div class="auth1lnkprce">
-                                                <p class="cr1fot">By <a href="#">John Doe</a></p>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
 
                             
                         </div>
@@ -174,6 +86,6 @@
         </div>
     </div>
 </div>
-{% endif %}
-{% endfor %}
+
+
 {% endblock %}
