@@ -55,7 +55,7 @@
         <div class="main_logo" id="logo">
             <H3>ClassRoom</H3>
         </div>
-        <div class="top-category">
+        <!-- <div class="top-category">
             <div class="ui compact menu cate-dpdwn">
                 <div class="ui simple dropdown item">
                     <a href="#" class="option_links p-0" title="categories"><i class="uil uil-apps"></i></a>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- <div class="search120">
             <div class="ui search">
                 <div class="ui left icon input swdh10">
@@ -321,20 +321,20 @@
                             <div class="row justify-content-center">
                                 <div class="col-xl-4 col-lg-5 col-md-6">
                                     <div class="preview_video">
-                                        <a href="#" class="fcrse_img" data-toggle="modal" data-target="#videoModal">
+                                        <a href="#" class="fcrse_img" data-toggle="modal" >
                                             <img src="{{course_detail.class_pics.url}}" alt="">
-                                            <div class="course-overlay">
+                                            <!-- <div class="course-overlay">
                                                 <div class="badge_seller">{{course_detail.course_title}}</div>
                                                 <span class="play_btn1"><i class="uil uil-play"></i></span>
                                                 <span class="_215b02">Preview this course</span>
-                                            </div>
+                                            </div> -->
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-xl-8 col-lg-7 col-md-6">
                                     <div class="_215b03">
-                                        <h2>{{course_detail.course_subtitle}}</h2>
-                                        <span class="_215b04">The course you need to learn {{course_detail.course_subtitle}}  and More!</span>
+                                        <h2>{{course_detail.course_title}}</h2>
+                                        <span class="_215b04">{{course_detail.course_subtitle}}</span>
                                     </div>
                                     {% if course_detail.faculty == request.user %}
                                     <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'course_edit' course_detail.pk %}">Update</a>                                    
@@ -342,30 +342,13 @@
                                     {% endif %}
                                     <div class="_215b06">
                                         <div class="_215b07">
-                                            <span><i class='uil uil-comment'></i></span>
-                                            English
+                                            <span><i class='uil'></i></span>
+                                            Section:{{course_detail.course_section}}
                                         </div>
+                                      
                                         <div class="_215b08">
-                                            <span><i class='uil uil-closed-captioning'></i></span>
-                                            <span>English, Dutch
-                                                <span class="caption_tooltip">
-                                                    12 more
-                                                    <span class="caption-content">
-                                                        <span>French</span>
-                                                        <span>Hindi</span>
-                                                        <span>German [Auto-generated]</span>
-                                                        <span>Indonesian [Auto-generated]</span>
-                                                        <span>Italian [Auto-generated]</span>
-                                                        <span>Japanese [Auto-generated]</span>
-                                                        <span>Korean</span>
-                                                        <span>Polish</span>
-                                                        <span>Portuguese [Auto-generated]</span>
-                                                        <span>Spanish [Auto-generated]</span>
-                                                        <span>Traditional Chinese</span>
-                                                        <span>Turkish [Auto-generated]</span>
-                                                    </span>
-                                                </span>
-                                            </span>
+                                            <span><i class='uil uil-clock'></i></span>
+                                            <span>{{course_detail.class_time}}</span>
                                         </div>
                                     </div>
                                 </div>
