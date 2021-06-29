@@ -203,7 +203,7 @@
                         <a href="setting.html" class="item channel_item">Setting</a>
                         <a href="help.html" class="item channel_item">Help</a>
                         <a href="feedback.html" class="item channel_item">Send Feedback</a> -->
-                        <a href="sign_in.html" class="item channel_item">Sign Out</a>
+                        <a href="{% url 'logoutUser' %}" class="item channel_item">Sign Out</a>
                     </div>
                 </li>
             </ul>
@@ -402,147 +402,109 @@
                                                         course</span></li>
                                             </ul>
                                         </div>
-                                        <div class="_htgdrt mt-35">
-                                            <h3>What you'll learn</h3>
-                                            <div class="_scd123">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <ul class="_htg452 _abcd145">
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Lorem
-                                                                        ipsum dolor sit amet, consectetur adipiscing
-                                                                        elit.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Donec
-                                                                        ultricies elit porttitor, ultrices enim a,
-                                                                        commodo dolor.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Nunc
-                                                                        dapibus ligula sed justo porta, id volutpat odio
-                                                                        iaculis.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Maecenas
-                                                                        pharetra mi quis nisl mollis, molestie imperdiet
-                                                                        lorem molestie.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Maecenas
-                                                                        ultricies felis in pulvinar blandit.</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Praesent
-                                                                        ac libero consequat, efficitur tortor et,
-                                                                        interdum sem.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Nullam non
-                                                                        lacus nibh. Etiam et fringilla neque, ut
-                                                                        vulputate sapien. Sed vitae tortor gravida,
-                                                                        interdum felis at, pulvinar enim. Integer tempor
-                                                                        urna leo.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Phasellus
-                                                                        ultrices tellus sed volutpat vestibulum.
-                                                                        Curabitur aliquet dictum leo non congue.</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>In hac
-                                                                        habitasse platea dictumst. Aenean vel fermentum
-                                                                        neque.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Suspendisse
-                                                                        semper feugiat urna dictum interdum.</span>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <ul class="_htg452 _abcd145">
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Nullam non
-                                                                        lacus nibh. Etiam et fringilla neque, ut
-                                                                        vulputate sapien. Sed vitae tortor gravida,
-                                                                        interdum felis at, pulvinar enim. Integer tempor
-                                                                        urna leo.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Phasellus
-                                                                        ultrices tellus sed volutpat vestibulum.
-                                                                        Curabitur aliquet dictum leo non congue.</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>In hac
-                                                                        habitasse platea dictumst. Aenean vel fermentum
-                                                                        neque.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Suspendisse
-                                                                        semper feugiat urna dictum interdum.</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Lorem
-                                                                        ipsum dolor sit amet, consectetur adipiscing
-                                                                        elit.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Donec
-                                                                        ultricies elit porttitor, ultrices enim a,
-                                                                        commodo dolor.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Nunc
-                                                                        dapibus ligula sed justo porta, id volutpat odio
-                                                                        iaculis.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Maecenas
-                                                                        pharetra mi quis nisl mollis, molestie imperdiet
-                                                                        lorem molestie.</span></div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Maecenas
-                                                                        ultricies felis in pulvinar blandit.</span>
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="_5f7g15"><i
-                                                                        class="fas fa-check-circle"></i><span>Praesent
-                                                                        ac libero consequat, efficitur tortor et,
-                                                                        interdum sem.</span></div>
-                                                            </li>
-                                                        </ul>
+
+                                        
+                                            
+                                    <div class="student_reviews">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="review_right">
+                                                    <div class="review_right_heading">
+                                                        <h3>Discussions</h3>
                                                     </div>
                                                 </div>
+                                                <div class="cmmnt_1526">
+                                                    <div class="cmnt_group">
+                                                        <div class="img160">
+                                                            {% if course_detail.faculty == request.user %}
+                                                            <img src={{request.user.faculty.profile_pic.url}}  alt="">
+                                                            {% else %}
+                                                            <img src={{request.user.student.profile_pic.url}}  alt="">
+                                                            {% endif %}
+                                                        </div>
+                                                        <textarea class="_cmnt001"
+                                                            placeholder="Announce something in your class"></textarea>
+                                                    </div>
+                                                    <button class="cmnt-btn" type="submit">Post</button>
+                                                </div>
+                                                <!-- <div class="review_all120">
+                                                    <div class="review_item">
+                                                        <div class="review_usr_dt">
+                                                            <img src="images/left-imgs/img-1.jpg" alt="">
+                                                            <div class="rv1458">
+                                                                <h4 class="tutor_name1">John Doe</h4>
+                                                                <span class="time_145">2 hour ago</span>
+                                                            </div>
+                                                            <div class="eps_dots more_dropdown">
+                                                                <a href="#"><i class="uil uil-ellipsis-v"></i></a>
+                                                                <div class="dropdown-content">
+                                                                    <span><i
+                                                                            class='uil uil-comment-alt-edit'></i>Edit</span>
+                                                                    <span><i class='uil uil-trash-alt'></i>Delete</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="rvds10">Nam gravida elit a velit rutrum, eget dapibus
+                                                            ex elementum. Interdum et malesuada fames ac ante ipsum
+                                                            primis in faucibus. Fusce lacinia, nunc sit amet tincidunt
+                                                            venenatis.</p>
+                                                        <div class="rpt101">
+                                                            <a href="#" class="report155"><i
+                                                                    class='uil uil-thumbs-up'></i> 10</a>
+                                                            <a href="#" class="report155"><i
+                                                                    class='uil uil-thumbs-down'></i> 1</a>
+                                                            <a href="#" class="report155"><i
+                                                                    class='uil uil-heart'></i></a>
+                                                            <a href="#" class="report155 ml-3">Reply</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="review_reply">
+                                                        <div class="review_item">
+                                                            <div class="review_usr_dt">
+                                                                <img src="images/left-imgs/img-3.jpg" alt="">
+                                                                <div class="rv1458">
+                                                                    <h4 class="tutor_name1">Rock Doe</h4>
+                                                                    <span class="time_145">1 hour ago</span>
+                                                                </div>
+                                                                <div class="eps_dots more_dropdown">
+                                                                    <a href="#"><i class="uil uil-ellipsis-v"></i></a>
+                                                                    <div class="dropdown-content">
+                                                                        <span><i
+                                                                                class='uil uil-trash-alt'></i>Delete</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <p class="rvds10">Fusce lacinia, nunc sit amet tincidunt
+                                                                venenatis.</p>
+                                                            <div class="rpt101">
+                                                                <a href="#" class="report155"><i
+                                                                        class='uil uil-thumbs-up'></i> 4</a>
+                                                                <a href="#" class="report155"><i
+                                                                        class='uil uil-thumbs-down'></i> 2</a>
+                                                                <a href="#" class="report155"><i
+                                                                        class='uil uil-heart'></i></a>
+                                                                <a href="#" class="report155 ml-3">Reply</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
                                             </div>
                                         </div>
+                                    </div>                                
+                                 
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="classwork" role="tabpanel">
