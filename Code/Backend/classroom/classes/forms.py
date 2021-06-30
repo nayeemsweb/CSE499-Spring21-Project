@@ -1,6 +1,6 @@
 from django import forms
 from django.forms.widgets import Textarea
-from .models import Classroom,Post,Comment
+from .models import Classroom,Post
 
 class ClassroomForm(forms.ModelForm):
     course_description = forms.CharField(widget= forms.Textarea)

@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .decorators import *
-from classes.models import Classroom,Comment,Post, student_classroom
+from classes.models import Classroom,Post, student_classroom
 
 @unauthenticated_user
 def FacultyRegistration(request):

@@ -1,6 +1,7 @@
 from django import db
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.base import ModelState
 from accounts.models import Faculty,Student
 import uuid
 import random
@@ -45,19 +46,13 @@ class Classroom (models.Model):
     #     return self.facultyiD
 
 class Post (models.Model):
-    class_code=models.ForeignKey(Classroom,on_delete=models.CASCADE)
-    post=models.CharField(max_length=1000)
-    userID=models.ForeignKey(User,on_delete=models.CASCADE)
+    classroom=models.ForeignKey(Classroom,on_delete=models.CASCADE)
+    post=models.TextField(max_length=1000)
+    userID=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
+    comment = models.ForeignKey('Post', null=True, related_name= "comments", on_delete=models.CASCADE )
 
-class Comment(models.Model):
-    postID=models.ForeignKey(Post, on_delete= models.CASCADE)
-    comments=models.CharField(max_length=1000)
-    userID=models.ForeignKey(User,on_delete=models.CASCADE)
-# class MyUUIDModel(models.Model):
-#     id = models.UUIDField(
-#          primary_key = True,
-#          default = uuid.uuid4,
-#          editable = False)
+
+
 
 class student_classroom(models.Model):
     student = models.ForeignKey(Student,on_delete=models.SET_NULL,null=True)

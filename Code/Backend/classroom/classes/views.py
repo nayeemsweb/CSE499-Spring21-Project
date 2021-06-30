@@ -26,15 +26,25 @@ def createCourse(request):
 
 def courseDetail(request,pk):
     course_detail = Classroom.objects.get(class_codes = pk)
-    posts = Post.objects.filter(class_code = Classroom.objects.get(class_codes = pk))
+    posts = Post.objects.filter(classroom = Classroom.objects.get(class_codes = pk),comment = None)
     if request.method == 'POST':
         postForm = PostForm(request.POST or None)
         if postForm.is_valid():
             post = request.POST.get('post')
-            postForm.save()
+            print(post)
+            comment_id = request.POST.get('post_id')
+            print(comment_id)
+            post_qs = None
+            if comment_id:
+                post_qs = Post.objects.get(id = comment_id)
+            post = Post.objects.create(classroom=Classroom.objects.get(class_codes = pk), userID =request.user, post=post, comment= post_qs )
+            print(post)
+
+            post.save()
+            return redirect ('/')
     else:
         postForm = PostForm()
-        context ={'course_detail':course_detail,'postForm':postForm}
+        context ={'course_detail':course_detail,'posts':posts,'postForm':postForm}
         return render(request,'course_detail_view.html',context) ### Work still going on here
 
 def courseDelete(request,pk):
