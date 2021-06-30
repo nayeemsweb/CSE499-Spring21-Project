@@ -1,11 +1,11 @@
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate, login, logout
-from .forms import ClassroomForm
+from .forms import ClassroomForm, PostForm
 from django.contrib import messages
 from django.http import HttpResponse, Http404
 from django.shortcuts import redirect, render
-from classes.models import Classroom, student_classroom
+from classes.models import Classroom, student_classroom, Post
 from django.contrib.auth.models import User
 from accounts.models import Student,Faculty
 
@@ -26,8 +26,16 @@ def createCourse(request):
 
 def courseDetail(request,pk):
     course_detail = Classroom.objects.get(class_codes = pk)
-    context ={'course_detail':course_detail}
-    return render(request,'course_detail_view.html',context)
+    posts = Post.objects.filter(class_code = Classroom.objects.get(class_codes = pk))
+    if request.method == 'POST':
+        postForm = PostForm(request.POST or None)
+        if postForm.is_valid():
+            post = request.POST.get('post')
+            postForm.save()
+    else:
+        postForm = PostForm()
+        context ={'course_detail':course_detail,'postForm':postForm}
+        return render(request,'course_detail_view.html',context) ### Work still going on here
 
 def courseDelete(request,pk):
     course = get_object_or_404(Classroom, class_codes=pk)
