@@ -52,7 +52,7 @@ class Post (models.Model):
     # post=models.TextField(max_length=1000)
     post=RichTextUploadingField(blank=True,null=True)
     userID=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
-    comment = models.ForeignKey('Post', null=True, related_name= "comments", on_delete=models.CASCADE,verbose_name=" " )
+    comment = models.ForeignKey('Post', null=True, related_name= "comments", on_delete=models.CASCADE )
     # date_added=models.DateTimeField(auto_now_add=True,null=True)
 
 

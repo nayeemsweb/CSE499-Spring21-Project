@@ -412,14 +412,14 @@
 
                                         <div class="student_reviews">
                                             <div class="row">
-                                                <div class="col-lg-12">
+                                                <div class="col">
                                                     <div class="review_right">
                                                         <div class="review_right_heading">
                                                             <h3>Discussions</h3>
                                                         </div>
                                                     </div>
                                                     <div class="cmmnt_1526 col" >
-                                                        <div class="cmnt_group" style="display: block;">
+                                                        <div class="cmnt_group col" style="display: block;">
                                                             <div class="img160">
                                                                 {% if course_detail.faculty == request.user %}
                                                                 <img src={{request.user.faculty.profile_pic.url}}
@@ -440,12 +440,13 @@
 
                                                  
                                                     <div class="col-lg-8 col-md-8">
-                                                        <div class="cmnt_group">
+                                                        <div class="">
                                                             {% for post in posts %}
-                                                    <blockquote class="col-lg-12 col-md-12 cmmnt_1526" >
-                                                        <footer class="blockquote-footer">
+                                                    <blockquote class="mb-3 cmmnt_1526">
+                                                       
+                                                        <footer style="font-size: medium;">
                                                            {{ post.userID|capfirst }}
-                                                        <p class="mb-0">{{ post.post |safe }}</p>
+                                                        <p class=>{{ post.post |safe }}</p>
                                                         
                                                             
 
@@ -456,26 +457,24 @@
                                                
                                             </div>
                                            
-                                                    <div class="container mt-2 replied-comments">
+                                                    <div class="container mt-2 replied-comments" style="margin-left: 100px;">
 
 
 
-                                                        <div class="col-lg-8 col-md-8" >
+                                                        <div class="col-lg-8 col-md-8"  >
                                                              {% for comment in post.comments.all %}
-                                                            <div class="mb-3 cmmnt_1526" >
-                                                        <blockquote class="blockquote" style="border-radius: 5px;">
-                                                            <p class="mb-0 " style="border: 2px;">{{ comment.post }}</p>
-                                                            <footer class="blockquote-footer">Commented by <cite
-                                                                    title="Source Title">{{ comment.userID|capfirst }}</cite>
-
-
+                                                            <div class="mb-2 cmmnt_1526">
+                                                        <blockquote style="border-radius: 5px;">
+                                                            <footer style="font-size:small;">{{ comment.userID|capfirst }}
                                                             </footer>
+                                                            <p class="mt-2" style="border: 2px;">{{ comment.post }}</p>
+                                                            
                                                         </blockquote>
                                                         </div>
                                                         {% endfor %}
                                                     </div>
                                                       
-                                                        <div class="form-group cmmnt_1526 row">
+                                                        <div class="form-group col-lg-8 col-md-8 cmmnt_1526">
 
 
 
@@ -484,7 +483,7 @@
                                                                 <input type="hidden" name="post_id"
                                                                     value="{{ post.id }}">
                                                                 {{ postForm.as_p}}
-                                                                <input type="submit" value="Comment"
+                                                                <input type="submit"  value="Comment"
                                                                     class="btn btn-outline-success">
                                                             </form>
 

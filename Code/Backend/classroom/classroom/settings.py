@@ -139,6 +139,8 @@ CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.j
 #This ensures you have all toolbar icons
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': None, 
+        'toolbar': 'full',
+        'height': 300,
+        'width': 1500,
         },
     }
