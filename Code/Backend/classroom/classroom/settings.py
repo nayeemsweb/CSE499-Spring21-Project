@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'accounts',
     'crispy_forms',
     'classes',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -130,4 +132,13 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
-MEDIA_URL ='/images/' 
+MEDIA_URL ='/media/' 
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+#This ensures you have all toolbar icons
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None, 
+        },
+    }

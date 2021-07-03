@@ -6,6 +6,8 @@ from accounts.models import Faculty,Student
 import uuid
 import random
 import string
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class ClassTime (models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -47,9 +49,12 @@ class Classroom (models.Model):
 
 class Post (models.Model):
     classroom=models.ForeignKey(Classroom,on_delete=models.CASCADE)
-    post=models.TextField(max_length=1000)
+    # post=models.TextField(max_length=1000)
+    post=RichTextUploadingField(blank=True,null=True)
     userID=models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
-    comment = models.ForeignKey('Post', null=True, related_name= "comments", on_delete=models.CASCADE )
+    comment = models.ForeignKey('Post', null=True, related_name= "comments", on_delete=models.CASCADE,verbose_name=" " )
+    # date_added=models.DateTimeField(auto_now_add=True,null=True)
+
 
 
 

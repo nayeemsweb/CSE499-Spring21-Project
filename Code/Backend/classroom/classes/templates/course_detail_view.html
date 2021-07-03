@@ -44,7 +44,7 @@
     </div>
 
 
-    <header style="margin-top: auto;" class="header clearfix">
+    <header style="margin-top: auto;" class="clearfix header">
         <button type="button" id="toggleMenu" class="toggle_menu">
             <i class='uil uil-bars'></i>
         </button>
@@ -58,7 +58,7 @@
         <!-- <div class="top-category">
             <div class="ui compact menu cate-dpdwn">
                 <div class="ui simple dropdown item">
-                    <a href="#" class="option_links p-0" title="categories"><i class="uil uil-apps"></i></a>
+                    <a href="#" class="p-0 option_links" title="categories"><i class="uil uil-apps"></i></a>
                     <div class="menu dropdown_category5">
                         <a href="#" class="item channel_item">Development</a>
                         <a href="#" class="item channel_item">Business</a>
@@ -269,7 +269,7 @@
                         </ul>
                     </li>
 
-                    <div class="left_section pt-2">
+                    <div class="pt-2 left_section">
                         <ul>
                             <li class="menu--item">
                                 <a href="setting.html" class="menu--link" title="Setting">
@@ -337,9 +337,9 @@
                                         <span class="_215b04">{{course_detail.course_subtitle}}</span>
                                     </div>
                                     {% if course_detail.faculty == request.user %}
-                                    <a class="btn btn-secondary btn-sm mt-1 mb-1"
+                                    <a class="mt-1 mb-1 btn btn-secondary btn-sm"
                                         href="{% url 'course_edit' course_detail.pk %}">Update</a>
-                                    <a class="btn btn-danger btn-sm mt-1 mb-1"
+                                    <a class="mt-1 mb-1 btn btn-danger btn-sm"
                                         href="{% url 'course_delete' course_detail.pk %}">Delete</a>
                                     {% endif %}
                                     <div class="_215b06">
@@ -418,8 +418,8 @@
                                                             <h3>Discussions</h3>
                                                         </div>
                                                     </div>
-                                                    <div class="cmmnt_1526">
-                                                        <div class="cmnt_group">
+                                                    <div class="cmmnt_1526 col" >
+                                                        <div class="cmnt_group" style="display: block;">
                                                             <div class="img160">
                                                                 {% if course_detail.faculty == request.user %}
                                                                 <img src={{request.user.faculty.profile_pic.url}}
@@ -431,37 +431,51 @@
                                                             </div>
                                                             <form action="" , method="POST">
                                                                 {%csrf_token%}
+                                                                {{postForm.media}}
                                                                 {{postForm.as_p}}
                                                         </div>
-                                                        <button class="cmnt-btn" type="submit">Post</button></form>
+                                                        <button class="cmnt-btn" type="submit">Post</button>
+                                                    </form>
                                                     </div>
 
-                                                    {% for post in posts %}
-                                                    <blockquote class="blockquote">
-                                                        <p class="mb-0">{{ post.post }}</p>
-                                                        <footer class="blockquote-footer">Posted by <cite
-                                                                title="Source Title">{{ post.userID|capfirst }}</cite>
+                                                 
+                                                    <div class="col-lg-8 col-md-8">
+                                                        <div class="cmnt_group">
+                                                            {% for post in posts %}
+                                                    <blockquote class="col-lg-12 col-md-12 cmmnt_1526" >
+                                                        <footer class="blockquote-footer">
+                                                           {{ post.userID|capfirst }}
+                                                        <p class="mb-0">{{ post.post |safe }}</p>
+                                                        
                                                             
 
                                                         </footer>
                                                     </blockquote>
+                                                   
+                                                </div>
+                                               
+                                            </div>
+                                           
+                                                    <div class="container mt-2 replied-comments">
 
-                                                    <div class="replied-comments container mt-2">
-
-                                                        {% for comment in post.comments.all %}
 
 
-
-                                                        <blockquote class="blockquote">
-                                                            <p class="mb-0">{{ comment.post }}</p>
+                                                        <div class="col-lg-8 col-md-8" >
+                                                             {% for comment in post.comments.all %}
+                                                            <div class="mb-3 cmmnt_1526" >
+                                                        <blockquote class="blockquote" style="border-radius: 5px;">
+                                                            <p class="mb-0 " style="border: 2px;">{{ comment.post }}</p>
                                                             <footer class="blockquote-footer">Commented by <cite
                                                                     title="Source Title">{{ comment.userID|capfirst }}</cite>
 
 
                                                             </footer>
                                                         </blockquote>
+                                                        </div>
                                                         {% endfor %}
-                                                        <div class="form-group row">
+                                                    </div>
+                                                      
+                                                        <div class="form-group cmmnt_1526 row">
 
 
 
@@ -470,7 +484,7 @@
                                                                 <input type="hidden" name="post_id"
                                                                     value="{{ post.id }}">
                                                                 {{ postForm.as_p}}
-                                                                <input type="submit" value="Submit"
+                                                                <input type="submit" value="Comment"
                                                                     class="btn btn-outline-success">
                                                             </form>
 
@@ -515,7 +529,7 @@
                                                                     class='uil uil-thumbs-down'></i> 1</a>
                                                             <a href="#" class="report155"><i
                                                                     class='uil uil-heart'></i></a>
-                                                            <a href="#" class="report155 ml-3">Reply</a>
+                                                            <a href="#" class="ml-3 report155">Reply</a>
                                                         </div>
                                                     </div>
                                                     <div class="review_reply">
@@ -543,7 +557,7 @@
                                                                         class='uil uil-thumbs-down'></i> 2</a>
                                                                 <a href="#" class="report155"><i
                                                                         class='uil uil-heart'></i></a>
-                                                                <a href="#" class="report155 ml-3">Reply</a>
+                                                                <a href="#" class="ml-3 report155">Reply</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2072,7 +2086,7 @@
                                                         </div>
                                                         <div class="_rate004">
                                                             <div class="progress progress1">
-                                                                <div class="progress-bar w-5" role="progressbar"
+                                                                <div class="w-5 progress-bar" role="progressbar"
                                                                     aria-valuenow="10" aria-valuemin="0"
                                                                     aria-valuemax="100"></div>
                                                             </div>
@@ -2087,7 +2101,7 @@
                                                         </div>
                                                         <div class="_rate004">
                                                             <div class="progress progress1">
-                                                                <div class="progress-bar w-2" role="progressbar"
+                                                                <div class="w-2 progress-bar" role="progressbar"
                                                                     aria-valuenow="2" aria-valuemin="0"
                                                                     aria-valuemax="100"></div>
                                                             </div>
@@ -2102,7 +2116,7 @@
                                                         </div>
                                                         <div class="_rate004">
                                                             <div class="progress progress1">
-                                                                <div class="progress-bar w-1" role="progressbar"
+                                                                <div class="w-1 progress-bar" role="progressbar"
                                                                     aria-valuenow="0" aria-valuemin="0"
                                                                     aria-valuemax="100"></div>
                                                             </div>
@@ -2139,7 +2153,7 @@
                                                                 <span class="time_145">2 hour ago</span>
                                                             </div>
                                                         </div>
-                                                        <div class="rating-box mt-20">
+                                                        <div class="mt-20 rating-box">
                                                             <span class="rating-star full-star"></span>
                                                             <span class="rating-star full-star"></span>
                                                             <span class="rating-star full-star"></span>
@@ -2173,7 +2187,7 @@
                                                                 <span class="time_145">12 hour ago</span>
                                                             </div>
                                                         </div>
-                                                        <div class="rating-box mt-20">
+                                                        <div class="mt-20 rating-box">
                                                             <span class="rating-star full-star"></span>
                                                             <span class="rating-star full-star"></span>
                                                             <span class="rating-star full-star"></span>
@@ -2207,7 +2221,7 @@
                                                                 <span class="time_145">5 days ago</span>
                                                             </div>
                                                         </div>
-                                                        <div class="rating-box mt-20">
+                                                        <div class="mt-20 rating-box">
                                                             <span class="rating-star full-star"></span>
                                                             <span class="rating-star full-star"></span>
                                                             <span class="rating-star full-star"></span>
@@ -2241,7 +2255,7 @@
                                                                 <span class="time_145">15 days ago</span>
                                                             </div>
                                                         </div>
-                                                        <div class="rating-box mt-20">
+                                                        <div class="mt-20 rating-box">
                                                             <span class="rating-star full-star"></span>
                                                             <span class="rating-star full-star"></span>
                                                             <span class="rating-star full-star"></span>
@@ -2275,7 +2289,7 @@
                                                                 <span class="time_145">20 days ago</span>
                                                             </div>
                                                         </div>
-                                                        <div class="rating-box mt-20">
+                                                        <div class="mt-20 rating-box">
                                                             <span class="rating-star full-star"></span>
                                                             <span class="rating-star full-star"></span>
                                                             <span class="rating-star full-star"></span>
@@ -2458,7 +2472,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
-                                                            <div class="main-loader mt-20">
+                                                            <div class="mt-20 main-loader">
                                                                 <div class="spinner">
                                                                     <div class="bounce1"></div>
                                                                     <div class="bounce2"></div>

@@ -10,7 +10,8 @@ class ClassroomForm(forms.ModelForm):
 
 
 class PostForm(forms.ModelForm):
-    post= forms.CharField(widget=Textarea)
+    # post= forms.CharField(widget=Textarea)
     class Meta:
         model= Post
         fields = ['post']
+    
