@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.base import ModelState
 from accounts.models import Faculty,Student
+from django.urls import reverse
 import uuid
 import random
 import string
@@ -42,10 +43,10 @@ class Classroom (models.Model):
     
     def __str__(self) -> str:
         return self.course_title + ' Section ' +self.course_section
-    # class Meta:
-    #     db_table="Classes"
-    # def __str__(self):
-    #     return self.facultyiD
+    
+
+    def get_absolute_url(self):
+        return reverse('course_detail', kwargs={'pk':self.class_codes})
 
 class Post (models.Model):
     classroom=models.ForeignKey(Classroom,on_delete=models.CASCADE)

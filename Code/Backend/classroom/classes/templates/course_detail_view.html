@@ -213,9 +213,14 @@
     <nav class="vertical_nav">
         <div class="left_section menu_left" id="js-menu">
             <div class="left_section">
-                <ul>
+                <ul>                    
                     <li class="menu--item">
-                        <a href="index.html" class="menu--link" title="Home">
+                        {% if course_detail.faculty == request.user %}
+                        <a href="{% url 'facultyDashboard' %}" class="menu--link" title="Home">
+                        {% else %}
+                        <a href="{% url 'homePage' %}" class="menu--link" title="Home"></a>
+                        {% endif %}
+                        
                             <i class='uil uil-home-alt menu--icon'></i>
                             <span class="menu--label">Home</span>
                         </a>

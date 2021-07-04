@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate, login, logout
 from .forms import ClassroomForm, PostForm
 from django.contrib import messages
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404,HttpResponseRedirect
 from django.shortcuts import redirect, render
 from classes.models import Classroom, student_classroom, Post
 from django.contrib.auth.models import User
@@ -26,7 +26,7 @@ def createCourse(request):
 
 def courseDetail(request,pk):
     course_detail = Classroom.objects.get(class_codes = pk)
-    posts = Post.objects.filter(classroom = Classroom.objects.get(class_codes = pk),comment = None)
+    posts = Post.objects.filter(classroom = Classroom.objects.get(class_codes = pk),comment = None).order_by('-id')
     studentList = student_classroom.objects.filter(classroom =Classroom.objects.get(class_codes = pk))
     if request.method == 'POST':
         postForm = PostForm(request.POST or None)
@@ -42,7 +42,7 @@ def courseDetail(request,pk):
             print(post)
 
             post.save()
-            return redirect ('/')
+            return HttpResponseRedirect(course_detail.get_absolute_url())
     else:
         postForm = PostForm()
         context ={'course_detail':course_detail,'posts':posts,'postForm':postForm,'studentList':studentList}
