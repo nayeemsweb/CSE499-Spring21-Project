@@ -27,6 +27,7 @@ def createCourse(request):
 def courseDetail(request,pk):
     course_detail = Classroom.objects.get(class_codes = pk)
     posts = Post.objects.filter(classroom = Classroom.objects.get(class_codes = pk),comment = None)
+    studentList = student_classroom.objects.filter(classroom =Classroom.objects.get(class_codes = pk))
     if request.method == 'POST':
         postForm = PostForm(request.POST or None)
         if postForm.is_valid():
@@ -44,7 +45,7 @@ def courseDetail(request,pk):
             return redirect ('/')
     else:
         postForm = PostForm()
-        context ={'course_detail':course_detail,'posts':posts,'postForm':postForm}
+        context ={'course_detail':course_detail,'posts':posts,'postForm':postForm,'studentList':studentList}
         return render(request,'course_detail_view.html',context) ### Work still going on here
 
 def courseDelete(request,pk):
