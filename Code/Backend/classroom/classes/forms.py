@@ -1,6 +1,6 @@
 from django import forms
 from django.forms.widgets import Textarea
-from .models import Classroom,Post
+from .models import Classroom,Post,exam ,student_exam
 from ckeditor_uploader.fields import RichTextUploadingField
 class ClassroomForm(forms.ModelForm):
     course_description = forms.CharField(widget= forms.Textarea)
@@ -23,3 +23,8 @@ class PostForm(forms.ModelForm):
         self.fields['post'].label = ""
         self.fields['post'].widget.attrs['cols'] = 100
         self.fields['post'].widget.attrs['rows'] = 2
+
+class ExamForm(forms.ModelForm):
+    class Meta:
+        model = exam 
+        fields = ['exam_title','exam_post','exam_time','total_marks']

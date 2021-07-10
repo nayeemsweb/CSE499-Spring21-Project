@@ -1,11 +1,11 @@
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate, login, logout
-from .forms import ClassroomForm, PostForm
+from .forms import ClassroomForm, PostForm, ExamForm
 from django.contrib import messages
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from django.shortcuts import redirect, render
-from classes.models import Classroom, student_classroom, Post
+from classes.models import Classroom, student_classroom, Post, exam, student_exam
 from django.contrib.auth.models import User
 from accounts.models import Student,Faculty
 
@@ -28,6 +28,7 @@ def courseDetail(request,pk):
     course_detail = Classroom.objects.get(class_codes = pk)
     posts = Post.objects.filter(classroom = Classroom.objects.get(class_codes = pk),comment = None).order_by('-id')
     studentList = student_classroom.objects.filter(classroom =Classroom.objects.get(class_codes = pk))
+    
     if request.method == 'POST':
         postForm = PostForm(request.POST or None)
         if postForm.is_valid():
@@ -45,8 +46,11 @@ def courseDetail(request,pk):
             return HttpResponseRedirect(course_detail.get_absolute_url())
     else:
         postForm = PostForm()
-        context ={'course_detail':course_detail,'posts':posts,'postForm':postForm,'studentList':studentList}
+        examForm = ExamForm()
+        context ={'course_detail':course_detail,'posts':posts,'postForm':postForm,'studentList':studentList,'examForm':examForm}
         return render(request,'course_detail_view.html',context) ### Work still going on here
+
+
 
 def courseDelete(request,pk):
     course = get_object_or_404(Classroom, class_codes=pk)
