@@ -135,7 +135,11 @@
                 </li>
                 <li class="ui dropdown">
                     <a href="#" class="opts_account" title="Account">
-                        <img src="images/hd_dp.jpg" alt="">
+                        {% if course_detail.faculty == request.user %}
+                            <img src={{request.user.faculty.profile_pic.url}} alt="">
+                        {% else %}
+                            <img src={{request.user.student.profile_pic.url}} alt="">
+                        {% endif %}
                     </a>
 
                     <div class="menu dropdown_account">
@@ -348,6 +352,10 @@
                                         role="tab" aria-selected="false">Classwork</a>
                                     <a class="nav-item nav-link" id="people-tab" data-toggle="tab" href="#people"
                                         role="tab" aria-selected="false">People</a>
+                                    {% if course_detail.faculty == request.user %}
+                                    <a class="nav-item nav-link" id="exam-tab" data-toggle="tab" href="#exam"
+                                        role="tab" aria-selected="false">Exam</a>
+                                    {% endif %}
                                 </div>
                             </nav>
                         </div>
@@ -367,32 +375,22 @@
                                             <h3>Who this course is for :</h3>
                                             <ul class="_abc124">
                                                 <li><span class="_5f7g11">This course is for anyone who wants to learn
-                                                        about {{course_detail.course_subtitle}}, regardless of previous
-                                                        experience</span>
+                                                        about {{course_detail.course_subtitle}} previous experience</span>
                                                 </li>
                                                 <li><span class="_5f7g11">It's perfect for complete beginners with zero
                                                         experience</span></li>
                                                 <li><span class="_5f7g11">It's also great for anyone who does have some
-                                                        experience in a few of the technologies (like
-                                                        {{course_detail.course_subtitle}}) but
+                                                        experience in a few of the technologies(like{{course_detail.course_subtitle}}) but
                                                         not all</span></li>
                                                 <li><span class="_5f7g11">If you want to take ONE COURSE to learn
-                                                        everything you need to know about
-                                                        {{course_detail.course_subtitle}}, take this
+                                                        everything you need to know about {{course_detail.course_subtitle}}, take this
                                                         course</span></li>
                                             </ul>
                                         </div>
-
-
-
-                                        <div class="student_reviews">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="review_right">
-                                                        <div class="review_right_heading">
-                                                            <h3>Discussions</h3>
-                                                        </div>
-                                                    </div>
+                                        <div class="_htgdrt mt-35">
+                                            <h3>Discussions</h3>
+                                            <div class="_scd123">
+                                                <div class="row">
                                                     <div class="cmmnt_1526 col">
                                                         <div class="cmnt_group col" style="display: block;">
                                                             <div class="img160">
@@ -410,13 +408,10 @@
                                                                 {{postForm.as_p}}
                                                         </div>
                                                         <button class="cmnt-btn" type="submit">Post</button>
-                                                        </form>
+                                                        </form>                                            
                                                     </div>
-
-
-                                                    <div class="col-lg-8 col-md-8">
-                                                        <div class="">
-                                                            {% for post in posts %}
+                                                    
+                                                    {% for post in posts %}
                                                             <blockquote class="mb-3 cmmnt_1526">
 
                                                                 <footer style="font-size: medium;">
@@ -428,34 +423,17 @@
                                                                 </footer>
                                                             </blockquote>
 
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div class="container mt-2 replied-comments"
-                                                        style="margin-left: 100px;">
-
-
-
-                                                        <div class="col-lg-8 col-md-8">
                                                             {% for comment in post.comments.all %}
-                                                            <div class="mb-2 cmmnt_1526">
-                                                                <blockquote style="border-radius: 5px;">
-                                                                    <footer style="font-size:small;">
-                                                                        {{ comment.userID|capfirst }}
-                                                                    </footer>
-                                                                    <p class="mt-2" style="border: 2px;">
-                                                                        {{ comment.post }}</p>
+                                                            
+                                                            <blockquote style="border-radius: 5px;">
+                                                                <footer style="font-size:small;">
+                                                                    {{ comment.userID|capfirst }}
+                                                                </footer>
+                                                                <p class="mt-2" style="border: 2px;">
+                                                                    {{ comment.post }}</p>
 
-                                                                </blockquote>
-                                                            </div>
+                                                            </blockquote>
                                                             {% endfor %}
-                                                        </div>
-
-                                                        <div class="form-group col-lg-8 col-md-8 cmmnt_1526">
-
-
-
                                                             <form action="" method="POST">
                                                                 {% csrf_token %}
                                                                 <input type="hidden" name="post_id"
@@ -464,22 +442,16 @@
                                                                 <input type="submit" value="Comment"
                                                                     class="btn btn-outline-success">
                                                             </form>
+                                                            {% endfor %}
 
 
-                                                        </div>
-
-
-                                                    </div>
+                                                    
                                                 </div>
-                                                {% endfor %}
-                                                
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            
                 
 
                     <div class="tab-pane fade" id="classwork" role="tabpanel">
