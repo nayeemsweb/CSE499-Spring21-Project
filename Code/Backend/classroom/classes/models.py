@@ -2,11 +2,13 @@ from django import db
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.base import ModelState
+from django.db.models.fields import DateField
 from accounts.models import Faculty,Student
 from django.urls import reverse
 import uuid
 import random
 import string
+import datetime
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -65,3 +67,14 @@ class student_classroom(models.Model):
     classroom = models.ForeignKey(Classroom,on_delete=models.CASCADE)
 
     
+class exam(models.Model):
+    classroom=models.ForeignKey(Classroom,on_delete=models.CASCADE)
+    exam_title=models.CharField(max_length=20,null=True)
+    exam_post=RichTextUploadingField(blank=True,null=True)
+    faculty=models.ForeignKey(User,on_delete=models.CASCADE,default=None)   
+    total_marks=models.IntegerField(null=True)
+    exam_time=models.DateTimeField()
+
+class student_exam(models.Model):
+    student_input=RichTextUploadingField(blank=True,null=True)
+    student_post_time=datetime.datetime.now()
