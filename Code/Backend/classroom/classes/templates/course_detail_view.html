@@ -451,8 +451,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            
-                
 
                     <div class="tab-pane fade" id="classwork" role="tabpanel">
                         <div class="crse_content">
@@ -1902,8 +1900,6 @@
                     </div>
 
 
-
-
                     <div class="tab-pane fade" id="people" role="tabpanel">
                         <div class="student_reviews">
                            
@@ -1954,6 +1950,16 @@
                         </div>
                     </div>
 
+
+<div class="tab-pane fade" id="exam" role="tabpanel">
+        
+    <form action="" , method="POST">
+        {%csrf_token%}
+        {{examForm.media}}
+        {{examForm.as_p}}
+        <button class="cmnt-btn" type="submit">Post</button>
+    </form>    
+</div>
 
                         </div>
                     </div>
