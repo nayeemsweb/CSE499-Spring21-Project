@@ -75,6 +75,8 @@ class exam(models.Model):
     total_marks=models.IntegerField(null=True)
     exam_time=models.DateTimeField()
 
+
+
 class student_exam(models.Model):
     student_input=RichTextUploadingField(blank=True,null=True)
     student_post_time=datetime.datetime.now()

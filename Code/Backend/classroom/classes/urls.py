@@ -2,6 +2,7 @@ from django.urls import path
 from django.urls.conf import include
 from .import views
 from django.conf.urls import url, include
+from django.views.i18n import JavaScriptCatalog
 urlpatterns =[
    path('create',views.createCourse,name='createCourse'),
    path('course_detail/<str:pk>/',views.courseDetail, name='course_detail'),
@@ -9,4 +10,7 @@ urlpatterns =[
    path('course_delete/<str:pk>/',views.courseDelete, name='course_delete'),
    path('join_class',views.joinclass,name='join_class'),
    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+   path('jsi18n', JavaScriptCatalog.as_view(), name='js-catlog'),
 ]
+
+    

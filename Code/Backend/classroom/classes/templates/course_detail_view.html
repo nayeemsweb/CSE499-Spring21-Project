@@ -3,15 +3,20 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, shrink-to-fit=9">
     <meta name="description" content="Gambolthemes">
     <meta name="author" content="Gambolthemes">
     <title>Classroom - Course Detail View</title>
-
+    
+    <script src="{% url 'js-catlog' %}"></script>
+    <script src="{% static '/admin/js/core.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'admin/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/widgets.css' %}">
     <link rel="icon" type="image/png" href="images/fav.png">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500" rel='stylesheet'>
     <link href="{% static 'vendor/unicons-2.0.1/css/unicons.css' %}" rel='stylesheet'>
     <link href="{% static 'css/vertical-responsive-menu.min.css' %}" rel="stylesheet">
@@ -412,9 +417,9 @@
                                                     </div>
                                                     
                                                     {% for post in posts %}
-                                                            <blockquote class="mb-3 cmmnt_1526">
+                                                            <blockquote class="my-5 cmmnt_1526" style="border: 2px solid gray; font-weight: bold;">
 
-                                                                <footer style="font-size: medium;">
+                                                                <footer style="font-size: large; ">
                                                                     {{ post.userID|capfirst }}
                                                                     <p class=>{{ post.post |safe }}</p>
 
@@ -425,8 +430,8 @@
 
                                                             {% for comment in post.comments.all %}
                                                             
-                                                            <blockquote style="border-radius: 5px;">
-                                                                <footer style="font-size:small;">
+                                                            <blockquote class="mx-5 col-sm-8" style="border-radius: 5px; background-color:#E8E8E8; ">
+                                                                <footer style="font-size:medium;font-weight: bold; ">
                                                                     {{ comment.userID|capfirst }}
                                                                 </footer>
                                                                 <p class="mt-2" style="border: 2px;">
@@ -1956,19 +1961,30 @@
     <form action="" , method="POST">
         {%csrf_token%}
         {{examForm.media}}
+       
         {{examForm.as_p}}
+        
         <button class="cmnt-btn" type="submit">Post</button>
     </form>    
+    <script>
+        $(function () {
+            $("#datetimepicker1").datetimepicker({
+            format: 'DD/MM/YYYY HH:mm',
+            });
+        });
+    </script>
 </div>
 
                         </div>
                     </div>
                 </div>
             </div>
- 
-
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="{% static 'js/vertical-responsive-menu.min.js' %}"></script>
+            
+    
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>    <script src="{% static 'js/vertical-responsive-menu.min.js' %}"></script>
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'vendor/OwlCarousel/owl.carousel.js' %}"></script>
