@@ -356,11 +356,9 @@
                                     <a class="nav-item nav-link" id="classwork-tab" data-toggle="tab" href="#classwork"
                                         role="tab" aria-selected="false">Classwork</a>
                                     <a class="nav-item nav-link" id="people-tab" data-toggle="tab" href="#people"
-                                        role="tab" aria-selected="false">People</a>
-                                    {% if course_detail.faculty == request.user %}
+                                        role="tab" aria-selected="false">People</a>                                    
                                     <a class="nav-item nav-link" id="exam-tab" data-toggle="tab" href="#exam"
-                                        role="tab" aria-selected="false">Exam</a>
-                                    {% endif %}
+                                        role="tab" aria-selected="false">Exam</a>                                    
                                 </div>
                             </nav>
                         </div>
@@ -456,7 +454,9 @@
                                         </div>
                                     </div>
                                 </div>
+                    
 
+                    <!-- 2nd tab -->
                     <div class="tab-pane fade" id="classwork" role="tabpanel">
                         <div class="crse_content">
                             <h3>Course content</h3>
@@ -1904,7 +1904,7 @@
                         </div>
                     </div>
 
-
+                    <!-- 3rd tab -->
                     <div class="tab-pane fade" id="people" role="tabpanel">
                         <div class="student_reviews">
                            
@@ -1955,10 +1955,11 @@
                         </div>
                     </div>
 
-
+<!-- 4th tab -->
 <div class="tab-pane fade" id="exam" role="tabpanel">
+{% if course_detail.faculty == request.user %}
         
-    <form action="" , method="POST">
+    <form action="", method="POST">
         {%csrf_token%}
         {{examForm.media}}
        
@@ -1973,6 +1974,7 @@
             });
         });
     </script>
+{% endif %}
 </div>
 
                         </div>
