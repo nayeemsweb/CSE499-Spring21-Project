@@ -30,26 +30,34 @@ def courseDetail(request,pk):
     studentList = student_classroom.objects.filter(classroom =Classroom.objects.get(class_codes = pk))
     
     if request.method == 'POST':
-        postForm = PostForm(request.POST or None)
-        if postForm.is_valid():
-            post = request.POST.get('post')
-            print(post)
-            comment_id = request.POST.get('post_id')
-            print(comment_id)
-            post_qs = None
-            if comment_id:
-                post_qs = Post.objects.get(id = comment_id)
-            post = Post.objects.create(classroom=Classroom.objects.get(class_codes = pk), userID =request.user, post=post, comment= post_qs )
-            print(post)
+        if 'examForm' in request.POST:
+            examForm = ExamForm(request.POST, request.FILES)
+            if examForm.is_valid():
+                examForm = examForm.save(commit=False)
+                examForm.faculty = request.user
+                examForm.classroom = Classroom.objects.get(class_codes = pk)
+                examForm.save()
+                return HttpResponseRedirect(course_detail.get_absolute_url())
+        else:            
+            postForm = PostForm(request.POST or None)
+            if postForm.is_valid():
+                post = request.POST.get('post')
+                print(post)
+                comment_id = request.POST.get('post_id')
+                print(comment_id)
+                post_qs = None
+                if comment_id:
+                    post_qs = Post.objects.get(id = comment_id)
+                post = Post.objects.create(classroom=Classroom.objects.get(class_codes = pk), userID =request.user, post=post, comment= post_qs )
+                print(post)
 
-            post.save()
-            return HttpResponseRedirect(course_detail.get_absolute_url())
+                post.save()
+                return HttpResponseRedirect(course_detail.get_absolute_url())
     else:
         postForm = PostForm()
         examForm = ExamForm()
         context ={'course_detail':course_detail,'posts':posts,'postForm':postForm,'studentList':studentList,'examForm':examForm}
         return render(request,'course_detail_view.html',context) ### Work still going on here
-
 
 
 def courseDelete(request,pk):

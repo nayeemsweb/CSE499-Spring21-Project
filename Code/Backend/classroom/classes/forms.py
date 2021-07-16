@@ -4,7 +4,7 @@ from django.forms.widgets import DateTimeInput, Textarea,TextInput
 from django.forms import DateTimeField
 from .models import Classroom,Post,exam ,student_exam
 from ckeditor_uploader.fields import RichTextUploadingField
-from django.contrib.admin import widgets
+from django.contrib.admin.widgets import AdminSplitDateTime
 class ClassroomForm(forms.ModelForm):
     course_description = forms.CharField(widget= forms.Textarea)
     class Meta:
@@ -36,15 +36,10 @@ class ExamForm(forms.ModelForm):
     #         'data-target': '#datetimepicker1'
     #     })
     # )
+
+    exam_time = forms.SplitDateTimeField(widget=AdminSplitDateTime())
     class Meta:
-        model = exam 
+        model = exam         
         fields = ['exam_title','exam_post','exam_time','total_marks']
-        widgets = {
-            'total_marks': TextInput(attrs={'class': 'form-control','required':'required','style': 'width:50px; display:inline-block;'}),
-            'exam_title': TextInput(attrs={'class': 'form-control','required':'required','style': 'width:250px; display:inline-block;'}),
-            'exam_time': DateTimeInput(attrs={'class': 'form-control datetimepicker-input', 'data-target': '#datetimepicker1'})
-            }
-    def __init__(self, *args, **kwargs):
-        super(ExamForm, self).__init__(*args, **kwargs)
-        self.fields['exam_post'].label = ""
-        self.fields['exam_time'].widget=widgets.AdminSplitDateTime()
+        
+   
