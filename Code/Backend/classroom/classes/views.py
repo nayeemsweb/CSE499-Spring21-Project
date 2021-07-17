@@ -28,7 +28,7 @@ def courseDetail(request,pk):
     course_detail = Classroom.objects.get(class_codes = pk)
     posts = Post.objects.filter(classroom = Classroom.objects.get(class_codes = pk),comment = None).order_by('-id')
     studentList = student_classroom.objects.filter(classroom =Classroom.objects.get(class_codes = pk))
-    
+    examList = exam.objects.filter(classroom =Classroom.objects.get(class_codes = pk))
     if request.method == 'POST':
         if 'examForm' in request.POST:
             examForm = ExamForm(request.POST, request.FILES)
@@ -56,7 +56,7 @@ def courseDetail(request,pk):
     else:
         postForm = PostForm()
         examForm = ExamForm()
-        context ={'course_detail':course_detail,'posts':posts,'postForm':postForm,'studentList':studentList,'examForm':examForm}
+        context ={'course_detail':course_detail,'posts':posts,'postForm':postForm,'studentList':studentList,'examForm':examForm,'examList':examList}
         return render(request,'course_detail_view.html',context) ### Work still going on here
 
 

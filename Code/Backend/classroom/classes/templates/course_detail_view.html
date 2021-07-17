@@ -1961,12 +1961,13 @@
         
     <form action="", method="POST">
         {%csrf_token%}
-        {{examForm.media}}
-       
+        {{examForm.media}}       
         {{examForm.as_p}}
         
         <button class="cmnt-btn" type="submit" name="examForm" >Post</button>
-    </form>    
+    </form>
+    
+        
     <script>
         $(function () {
             $("#datetimepicker1").datetimepicker({
@@ -1974,6 +1975,38 @@
             });
         });
     </script>
+    
+{% else %}
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Exam Title</th>
+        <th scope="col">Submission Deadline</th>
+        <th scope="col">Total Marks</th>
+        <th scope="col">Exam Details</th>        
+      </tr>
+    </thead>
+    <tbody>
+        {% for exam in examList %}
+      <tr>        
+        <td>{{exam.exam_title}}</td>
+        <td>{{exam.exam_time}}</td>
+        <td>{{exam.total_marks}}</td>
+        <td><a class="mt-1 mb-1 btn btn-danger btn-sm"
+            href="#">Click to See Details</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+<!-- {% for exam in examList %}
+    <h4>{{exam.exam_title}}</h4>
+
+{% endfor %} -->
+
+
+
 {% endif %}
 </div>
 
