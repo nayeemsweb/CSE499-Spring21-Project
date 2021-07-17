@@ -9,6 +9,8 @@ urlpatterns =[
    path('course_edit/<str:pk>/',views.courseEdit, name='course_edit'),
    path('course_delete/<str:pk>/',views.courseDelete, name='course_delete'),
    path('join_class',views.joinclass,name='join_class'),
+
+   path('exam_detail/<int:pk>/',views.examDetails,name='exam_detail'),
    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
    path('jsi18n', JavaScriptCatalog.as_view(), name='js-catlog'),
 ]

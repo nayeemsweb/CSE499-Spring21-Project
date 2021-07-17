@@ -1994,7 +1994,8 @@
         <td>{{exam.exam_time}}</td>
         <td>{{exam.total_marks}}</td>
         <td><a class="mt-1 mb-1 btn btn-danger btn-sm"
-            href="#">Click to See Details</a></td>
+            href="{% url 'exam_detail' exam.pk %}">Click to See Details</a>
+        </td>
       </tr>
       {% endfor %}
     </tbody>

@@ -94,3 +94,8 @@ def joinclass(request):
         return redirect ('homePage')
     else:
         return render(request,'join_class.html')
+
+def examDetails(request,pk):
+    exam_detail = exam.objects.get(id=pk)
+    context = {'exam_detail':exam_detail}
+    return render (request, 'exam_details.html',context)
