@@ -5,7 +5,7 @@ from .forms import ClassroomForm, PostForm, ExamForm
 from django.contrib import messages
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from django.shortcuts import redirect, render
-from classes.models import Classroom, student_classroom, Post, exam, student_exam
+from classes.models import Classroom, student_classroom, Post, exam, student_submission
 from django.contrib.auth.models import User
 from accounts.models import Student,Faculty
 

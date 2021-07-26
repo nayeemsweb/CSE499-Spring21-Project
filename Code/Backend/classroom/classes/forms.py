@@ -2,7 +2,7 @@
 from django import forms
 from django.forms.widgets import DateTimeInput, Textarea,TextInput
 from django.forms import DateTimeField
-from .models import Classroom,Post,exam ,student_exam
+from .models import Classroom,Post,exam ,student_submission
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.admin.widgets import AdminSplitDateTime
 class ClassroomForm(forms.ModelForm):
