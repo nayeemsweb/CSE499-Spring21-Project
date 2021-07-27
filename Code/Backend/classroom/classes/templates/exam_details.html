@@ -307,15 +307,44 @@
 </div> -->
 
 {% if exam_detail.faculty == request.user %}
-<p>Will be updating sooner </p>
+<div class="container" style="margin-top: 5%;">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Exam Title</th>
+            <th scope="col">Student name</th>
+            <th scope="col">Time of Submission</th>
+            <th scope="col">Submission Deadline</th>
+            <th scope="col">Attachment</th>
+            <th scope="col">Total Marks</th>
+            <th scope="col">Obtained Marks</th>        
+          </tr>
+        </thead>
+        <tbody>
+            {% for submission in all_submissions %}
+          <tr>        
+            <td>{{exam_detail.exam_title}}</td>
+            <td>{{submission.student}}</td>
+            <td>{{submission.student_post_time}}</td>
+            <td>{{exam_detail.exam_time}}</td>
+
+            <td>{{submission.student_input}}</td>
+            <td>{{exam_detail.total_marks}}</td>
+            <td>{{submission.student.obtained_marks}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+
 
 {% else %}
 
 <div class="container" style="margin-top: 5%;">
     <form action="" method="POST" enctype="multipart/form-data">
         {%csrf_token%}
-        {{student_submission.media}}       
-        {{student_submission.as_p}}       
+        {{submission_form.media}}       
+        {{submission_form.as_p}}       
         <button class="login-btn" type="submit">Submit</button>
     </form>
 </div>
