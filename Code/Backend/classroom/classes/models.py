@@ -79,6 +79,9 @@ class exam(models.Model):
 
 class student_submission(models.Model):
     student_input=RichTextUploadingField(blank=True,null=True)
-    student_post_time=datetime.datetime.now()
+    student_post_time=models.DateTimeField(auto_now_add=True,null=True)
     exam = models.ForeignKey(exam,on_delete=models.CASCADE)
     obtained_marks = models.CharField(max_length=20,null=True,blank=True)
+
+    def get_absolute_url(self):
+        return reverse('exam_detail', kwargs={'pk':id})

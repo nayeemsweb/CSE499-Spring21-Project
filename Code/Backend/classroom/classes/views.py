@@ -98,5 +98,17 @@ def joinclass(request):
 def examDetails(request,pk):
     exam_detail = exam.objects.get(id=pk)
     student_submission = StudentSubmissionForm()
-    context = {'exam_detail':exam_detail,'student_submission':student_submission}
-    return render (request, 'exam_details.html',context)
+
+
+    if request.method == 'POST':
+        student_submission = StudentSubmissionForm(request.POST, request.FILES)
+        if student_submission.is_valid():
+            student_submission = student_submission.save(commit=False)
+            student_submission.exam = exam.objects.get(id=pk)
+                        
+            student_submission.save()
+            return redirect ('/')
+
+    else:
+        context = {'exam_detail':exam_detail,'student_submission':student_submission}
+        return render (request, 'exam_details.html',context)
