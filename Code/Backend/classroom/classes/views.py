@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate, login, logout
-from .forms import ClassroomForm, PostForm, ExamForm
+from .forms import ClassroomForm, PostForm, ExamForm, StudentSubmissionForm
 from django.contrib import messages
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from django.shortcuts import redirect, render
@@ -97,5 +97,6 @@ def joinclass(request):
 
 def examDetails(request,pk):
     exam_detail = exam.objects.get(id=pk)
-    context = {'exam_detail':exam_detail}
+    student_submission = StudentSubmissionForm()
+    context = {'exam_detail':exam_detail,'student_submission':student_submission}
     return render (request, 'exam_details.html',context)

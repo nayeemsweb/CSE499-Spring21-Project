@@ -41,5 +41,11 @@ class ExamForm(forms.ModelForm):
     class Meta:
         model = exam         
         fields = ['exam_title','exam_post','exam_time','total_marks']
+
+class StudentSubmissionForm(forms.ModelForm):
+
+    class Meta:
+        model = student_submission
+        fields = ['student_input']
         
    
