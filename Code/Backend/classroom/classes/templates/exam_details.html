@@ -141,7 +141,7 @@
                 </li>
                 <li class="ui dropdown">
                     <a href="#" class="opts_account" title="Account">
-                        {% if course_detail.faculty == request.user %}
+                        {% if exam_detail.faculty == request.user %}
                             <img src={{request.user.faculty.profile_pic.url}} alt="">
                         {% else %}
                             <img src={{request.user.student.profile_pic.url}} alt="">
@@ -151,7 +151,7 @@
                     <div class="menu dropdown_account">
                         <div class="channel_my">
                             <div class="profile_link">
-                                {% if course_detail.faculty == request.user %}
+                                {% if exam_detail.faculty == request.user %}
                                 <img src={{request.user.faculty.profile_pic.url}} alt="">
                                 {% else %}
                                 <img src={{request.user.student.profile_pic.url}} alt="">

@@ -108,7 +108,7 @@ def examDetails(request,pk):
             submission_form.student = request.user
             submission_form.exam = exam.objects.get(id=pk)
                         
-            student_submission.save()
+            submission_form.save()
             return redirect ('/')
 
     else:
