@@ -61,7 +61,7 @@
         <div class="main_logo" id="logo">
             <H3>ClassRoom</H3>
         </div>
-
+       
         <div class="header_right">
             <ul>
                 <li class="ui dropdown">
@@ -141,17 +141,17 @@
                 </li>
                 <li class="ui dropdown">
                     <a href="#" class="opts_account" title="Account">
-                        {% if exam_detail.faculty == request.user %}
-                        <img src={{request.user.faculty.profile_pic.url}} alt="">
+                        {% if course_detail.faculty == request.user %}
+                            <img src={{request.user.faculty.profile_pic.url}} alt="">
                         {% else %}
-                        <img src={{request.user.student.profile_pic.url}} alt="">
+                            <img src={{request.user.student.profile_pic.url}} alt="">
                         {% endif %}
                     </a>
 
                     <div class="menu dropdown_account">
                         <div class="channel_my">
                             <div class="profile_link">
-                                {% if exam_detail.faculty == request.user %}
+                                {% if course_detail.faculty == request.user %}
                                 <img src={{request.user.faculty.profile_pic.url}} alt="">
                                 {% else %}
                                 <img src={{request.user.student.profile_pic.url}} alt="">
@@ -299,15 +299,26 @@
 
 
     
-<!-- <div class="container" style="margin-top: 5%; "> MUST USE MARGIN TOP OTHERWISE WONT SHOW IN PAGE !!!!!!!    
-    <h2>{{exam_detail.exam_title}}</h2>
-    <h2>{{exam_detail.exam_post}}</h2>
-    <h2>{{exam_detail.exam_time}}</h2>
-    <h2>{{exam_detail.total_marks}}</h2>
-</div> -->
+<div class="container" style="padding-top: 100px;" > 
+    <div style="justify-content: space-between; display: flex;">
+        <h2 style="padding-top: 15px;font-size: 40px; color: #ed2a26;">{{exam_detail.exam_title}}</h2>
+        <div style=" display: flex;padding: 15px;">
+            <p style="font-size: 20px;">Total Marks : </p><p style="font-size: 20px;padding-left: 2px;"> {{exam_detail.total_marks}}</p>
+        </div>
+    </div>
+    <div  style="padding: 20px;">
+        <p style="font-size: 25px;"> {{exam_detail.exam_post |safe }}</p>
+
+    </div>
+   <div style="display: flex; padding-top: 40px; padding-left: 10px;">
+    <p style="font-size: 18px;">Submission Deadline : </p><p style="font-size: 18px;padding-left: 2px;">{{exam_detail.exam_time}}<h2>
+   </div>
+    
+</div>
 
 {% if exam_detail.faculty == request.user %}
-<div class="container" style="margin-top: 5%;">
+
+<div class="container" >
     <table class="table">
         <thead class="thead-dark">
           <tr>
@@ -340,12 +351,12 @@
 
 {% else %}
 
-<div class="container" style="margin-top: 5%;">
+<div class="container" style="padding-top: 10px; padding-bottom: 10px;">
     <form action="" method="POST" enctype="multipart/form-data">
         {%csrf_token%}
         {{submission_form.media}}       
         {{submission_form.as_p}}       
-        <button class="login-btn" type="submit">Submit</button>
+        <button class="login-btn" style="font-size: large; " type="submit">Submit</button>
     </form>
 </div>
 

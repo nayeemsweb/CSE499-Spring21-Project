@@ -1978,11 +1978,11 @@
         </thead>
         <tbody>
             {% for exam in examList %}
-          <tr>        
+          <tr class="">        
             <td>{{exam.exam_title}}</td>
             <td>{{exam.exam_time}}</td>
             <td>{{exam.total_marks}}</td>
-            <td><a class="mt-1 mb-1 btn btn-danger btn-sm"
+            <td ><a class="mt-1 mb-1 text-white btn btn-danger btn-sm" 
                 href="{% url 'exam_detail' exam.pk %}">Click to See Details</a>
             </td>
           </tr>
@@ -2003,20 +2003,20 @@
 
 <table class="table">
     <thead class="thead-dark">
-      <tr>
-        <th scope="col">Exam Title</th>
-        <th scope="col">Submission Deadline</th>
-        <th scope="col">Total Marks</th>
-        <th scope="col">Exam Details</th>        
+      <tr >
+        <th style="font-size: 20px;" scope="col">Exam Title</th>
+        <th style="font-size: 20px;" scope="col">Submission Deadline</th>
+        <th style="font-size: 20px;" scope="col">Total Marks</th>
+        <th style="font-size: 20px;" scope="col">Exam Details</th>        
       </tr>
     </thead>
-    <tbody>
+    <tbody  style="padding-top: 30px;">
         {% for exam in examList %}
       <tr>        
-        <td>{{exam.exam_title}}</td>
-        <td>{{exam.exam_time}}</td>
-        <td>{{exam.total_marks}}</td>
-        <td><a class="mt-1 mb-1 btn btn-danger btn-sm"
+        <td style="font-size: 20px;">{{exam.exam_title}}</td>
+        <td style="font-size: 20px;">{{exam.exam_time}}</td>
+        <td style="font-size: 20px;">{{exam.total_marks}}</td>
+        <td><a class="mt-1 mb-1" style="font-size: 20px;"
             href="{% url 'exam_detail' exam.pk %}">Click to See Details</a>
         </td>
       </tr>

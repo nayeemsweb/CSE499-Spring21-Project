@@ -48,4 +48,6 @@ class StudentSubmissionForm(forms.ModelForm):
         model = student_submission
         fields = ['student_input']
         
-   
+    def __init__(self, *args, **kwargs):
+        super(StudentSubmissionForm, self).__init__(*args, **kwargs)
+        self.fields['student_input'].label = ""
