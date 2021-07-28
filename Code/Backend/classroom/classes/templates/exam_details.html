@@ -325,9 +325,8 @@
             <th scope="col">Exam Title</th>
             <th scope="col">Student name</th>
             <th scope="col">Time of Submission</th>
-            <th scope="col">Submission Deadline</th>
-            <th scope="col">Attachment</th>
-            <th scope="col">Total Marks</th>
+            
+            <th scope="col">Attachment</th>            
             <th scope="col">Obtained Marks</th>        
           </tr>
         </thead>
@@ -337,10 +336,9 @@
             <td>{{exam_detail.exam_title}}</td>
             <td>{{submission.student}}</td>
             <td>{{submission.student_post_time}}</td>
-            <td>{{exam_detail.exam_time}}</td>
+            
 
-            <td>{{submission.student_input}}</td>
-            <td>{{exam_detail.total_marks}}</td>
+            <td>{{submission.student_input |safe }}</td>            
             <td>{{submission.student.obtained_marks}}</td>
           </tr>
           {% endfor %}
