@@ -9,6 +9,7 @@ from django.shortcuts import redirect, render
 from classes.models import Classroom, student_classroom, Post, exam, student_submission
 from django.contrib.auth.models import User
 from accounts.models import Student,Faculty
+import datetime
 
 def createCourse(request):
     classform = ClassroomForm()
@@ -113,9 +114,25 @@ def examDetails(request,pk):
                 return redirect ('/')
             except IntegrityError as e:
                 messages = "You have already submitted your script"
-                context = {'messages':messages,'exam_detail':exam_detail}
+                context = {'messages':messages,'exam_detail':exam_detail,'all_submissions':all_submissions}
                 return render (request, 'exam_details.html',context)
 
     else:
         context = {'exam_detail':exam_detail,'submission_form':submission_form,'all_submissions':all_submissions}
         return render (request, 'exam_details.html',context)
+
+def submissionEdit(request,pk):
+    previous_submission = student_submission.objects.get(id = pk)
+    newSubmission_form = StudentSubmissionForm(instance = previous_submission)
+
+    if request.method == 'POST':
+        newSubmission_form = StudentSubmissionForm(request.POST, instance= previous_submission)
+        if newSubmission_form.is_valid():
+            newSubmission_form = newSubmission_form.save(commit=False)
+            newSubmission_form.student_post_time = datetime.datetime.now()
+            newSubmission_form.save()
+            return redirect ('/')
+
+    
+    context = {'newSubmission_form':newSubmission_form}
+    return render(request,'submission_edit.html',context)

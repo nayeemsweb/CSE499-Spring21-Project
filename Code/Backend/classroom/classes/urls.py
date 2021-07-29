@@ -11,6 +11,7 @@ urlpatterns =[
    path('join_class',views.joinclass,name='join_class'),
 
    path('exam_detail/<int:pk>/',views.examDetails,name='exam_detail'),
+   path('submission_edit/<int:pk>/',views.submissionEdit,name='submission_edit'),
    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
    path('jsi18n', JavaScriptCatalog.as_view(), name='js-catlog'),
 ]
