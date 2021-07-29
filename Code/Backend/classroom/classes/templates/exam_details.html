@@ -348,8 +348,14 @@
 
 
 {% else %}
+<div class="container"style="padding-top: 10px; padding-bottom: 10px;">
+    {% if messages %}
+        {{ messages }}
+    {% endif %}
+</div>
 
 <div class="container" style="padding-top: 10px; padding-bottom: 10px;">
+    
     <form action="" method="POST" enctype="multipart/form-data">
         {%csrf_token%}
         {{submission_form.media}}       

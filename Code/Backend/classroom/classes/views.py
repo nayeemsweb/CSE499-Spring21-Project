@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render
+from django.db import IntegrityError
 from django.contrib.auth import authenticate, login, logout
 from .forms import ClassroomForm, PostForm, ExamForm, StudentSubmissionForm
 from django.contrib import messages
@@ -107,9 +108,13 @@ def examDetails(request,pk):
             submission_form = submission_form.save(commit=False)
             submission_form.student = request.user
             submission_form.exam = exam.objects.get(id=pk)
-                        
-            submission_form.save()
-            return redirect ('/')
+            try:      
+                submission_form.save()
+                return redirect ('/')
+            except IntegrityError as e:
+                messages = "You have already submitted your script"
+                context = {'messages':messages,'exam_detail':exam_detail}
+                return render (request, 'exam_details.html',context)
 
     else:
         context = {'exam_detail':exam_detail,'submission_form':submission_form,'all_submissions':all_submissions}

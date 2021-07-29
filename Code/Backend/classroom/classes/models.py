@@ -80,7 +80,7 @@ class exam(models.Model):
 
 class student_submission(models.Model):
     student_input=RichTextUploadingField(blank=True,null=True)
-    student = models.ForeignKey(User,on_delete=SET_NULL,null=True)
+    student = models.OneToOneField(User,on_delete=SET_NULL,null=True)
     student_post_time=models.DateTimeField(auto_now_add=True,null=True)
     exam = models.ForeignKey(exam,on_delete=models.CASCADE)
     obtained_marks = models.CharField(max_length=20,null=True,blank=True)
