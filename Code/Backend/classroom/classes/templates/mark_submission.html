@@ -9,11 +9,7 @@
     <p>{{studentSubmission.student_post_time}}</p>
     <p>{{studentSubmission.student}}</p>
 
-    <form action="" method="POST" enctype="multipart/form-data">
-        {%csrf_token%}             
-        {{mark_form|crispy}}        
-        <button class="login-btn" type="submit">Update</button>
-    </form>
+    
 
 
 </div>

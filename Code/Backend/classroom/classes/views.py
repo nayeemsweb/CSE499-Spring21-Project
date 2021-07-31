@@ -136,3 +136,9 @@ def submissionEdit(request,pk):
     
     context = {'newSubmission_form':newSubmission_form}
     return render(request,'submission_edit.html',context)
+
+
+def markSubmission(request,pk):
+    studentSubmission = student_submission.objects.get(id = pk)
+    context = {'studentSubmission':studentSubmission}
+    return render(request,'mark_submission.html',context)
