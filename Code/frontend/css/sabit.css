@@ -1,0 +1,78 @@
+#peers {
+    position: absolute;
+    top: 12rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#me {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12rem;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#peers {
+    position: absolute;
+    top: 12rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+video {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    background: black;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 0.5rem solid black;
+}
+
+#me video {
+    transform: scaleX(-1);
+}
+
+#chat-buttons {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="button"]:not(:first-child) {
+    margin: 0 0 0 5px;
+}
+
+input[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+#chat-leave-button {
+    background: red;
+}
