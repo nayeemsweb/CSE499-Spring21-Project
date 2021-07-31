@@ -3,18 +3,21 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="container" style="padding-top: 5%;">
-
-    <p>{{studentSubmission.student_input |safe}}</p>
-    <p>{{studentSubmission.student_post_time}}</p>
-    <p>{{studentSubmission.student}}</p>
-    <p>{{studentSubmission.obtained_marks}}</p>
+<div class="container" style="padding-top: 150px;">
+    
+  <p style="font-size: 30px;color: #ed2a26; display: flex; font-weight: bold;">{{studentSubmission.student}}</p>
+  <p style="font-size: 15px;">Submitted at : {{studentSubmission.student_post_time}}</p>
+    <p style=" font: bold; font-size: 20px;padding-right: 10px;">Answer : <br>{{studentSubmission.student_input |safe}}</p>
+   
+    <p style=" font: bold; font-size: 20px;padding-right: 10px;">Obtained marks: {{studentSubmission.obtained_marks}}</p>
     <form action="{% url 'mark_submission' studentSubmission.pk %}" method="POST">
         {%csrf_token%}
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Mark</label>
-        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Marks" name="obtained_marks">
-        <button class="login-btn" type="submit">Update</button>
+    <div class="form-group" style="display: flex;">
+        <p for="exampleFormControlInput1" style=" font: bold; font-size: 20px;padding-right: 10px;">Marks :</p>
+        <input style="padding-left: 10px; width: 50%;" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter Marks" name="obtained_marks">
+       <div style="padding-left: 10px;">
+        <button style="padding: 10px;"   class="login-btn btn-danger" type="submit">Update</button>
+       </div>
       </div>
     </form>
 
