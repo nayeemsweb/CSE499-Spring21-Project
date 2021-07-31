@@ -51,3 +51,9 @@ class StudentSubmissionForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(StudentSubmissionForm, self).__init__(*args, **kwargs)
         self.fields['student_input'].label = ""
+
+class MarkSubmissionForm(forms.ModelForm):
+
+    class Meta:
+        model = student_submission
+        fields = ['obtained_marks']

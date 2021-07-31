@@ -327,7 +327,8 @@
             <th scope="col">Time of Submission</th>
             
             <th scope="col">Attachment</th>            
-            <th scope="col">Obtained Marks</th>        
+            <th scope="col">Obtained Marks</th>
+            <th scope="col">Mark Submission</th>
           </tr>
         </thead>
         <tbody>
@@ -340,6 +341,7 @@
 
             <td>{{submission.student_input |safe }}</td>            
             <td>{{submission.student.obtained_marks}}</td>
+            <td> <a href="{% url 'mark_submission' submission.pk %}"><button type="button" class="btn btn-danger">Click to Edit</button></a> </td>
           </tr>
           {% endfor %}
         </tbody>
@@ -380,7 +382,7 @@
             <td>{{exam_detail.exam_title}}</td>
             <td>{{submission.student}}</td>
             <td>{{submission.student_post_time}}</td>
-            <td> <a href="{% url 'submission_edit' submission.pk %}"><button type="button" class="btn btn-danger">Click to Edit</button></a> </td>                        
+            <td> <a href="{% url 'submission_edit' submission.pk %}"><button type="button" class="btn btn-danger">Click to Edit</button></a> </td>
             <td>{{submission.student.obtained_marks}}</td>
           </tr>
           {% endif %}
