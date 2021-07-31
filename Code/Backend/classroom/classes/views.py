@@ -140,5 +140,11 @@ def submissionEdit(request,pk):
 
 def markSubmission(request,pk):
     studentSubmission = student_submission.objects.get(id = pk)
-    context = {'studentSubmission':studentSubmission}
-    return render(request,'mark_submission.html',context)
+    
+    if request.method == 'POST':
+        studentSubmission.obtained_marks = request.POST['obtained_marks']
+        studentSubmission.save()
+        return redirect('/')
+    else:
+        context = {'studentSubmission':studentSubmission}
+        return render(request,'mark_submission.html',context)
