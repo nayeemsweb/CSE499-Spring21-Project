@@ -9,6 +9,7 @@ from django.shortcuts import redirect, render
 from classes.models import Classroom, student_classroom, Post, exam, student_submission
 from django.contrib.auth.models import User
 from accounts.models import Student,Faculty
+from django.contrib.auth.decorators import login_required
 import datetime
 
 def createCourse(request):
@@ -149,7 +150,7 @@ def markSubmission(request,pk):
         context = {'studentSubmission':studentSubmission}
         return render(request,'mark_submission.html',context)
 
-
+@login_required(login_url='loginPage')
 def liveclass(request):
     
         context ={}
