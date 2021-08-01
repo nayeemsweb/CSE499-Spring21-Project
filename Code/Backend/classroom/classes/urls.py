@@ -15,6 +15,7 @@ urlpatterns =[
    path('mark_submission/<int:pk>/',views.markSubmission,name='mark_submission'),
    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
    path('jsi18n', JavaScriptCatalog.as_view(), name='js-catlog'),
+
+   path('live/', views.liveclass, name='liveclass'),
 ]
 
-    

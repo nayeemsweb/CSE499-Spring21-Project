@@ -148,3 +148,9 @@ def markSubmission(request,pk):
     else:
         context = {'studentSubmission':studentSubmission}
         return render(request,'mark_submission.html',context)
+
+
+def liveclass(request):
+    
+        context ={}
+        return render(request,'video_classroom.html',context)
