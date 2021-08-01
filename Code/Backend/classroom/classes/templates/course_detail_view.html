@@ -317,6 +317,7 @@
                                 </div>
                                 <div class="col-xl-8 col-lg-7 col-md-6">
                                     <div class="_215b03">
+                                        <a class="float-right btn btn-success" href="{% url 'liveclass' %}?channel={{course_detail.class_code}}" target="_blank"><h2>Join Live Class</h2></a>
                                         <h2>{{course_detail.course_title}}</h2>
                                         <span class="_215b04">{{course_detail.course_subtitle}}</span>
                                     </div>
@@ -336,6 +337,7 @@
                                             <span><i class='uil uil-clock'></i></span>
                                             <span>{{course_detail.class_time}}</span>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
