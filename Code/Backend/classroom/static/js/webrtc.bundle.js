@@ -19073,7 +19073,7 @@ chatJoinButton.addEventListener('click', () => {
     .join(state.signaling)
     .then(() => Object(_viero_common_web_video__WEBPACK_IMPORTED_MODULE_6__["getUserStream"])({ video: true, audio: true }))
     .then((stream) => state.videochat.setStreams([stream]))
-    .then((stream) => Object(_viero_ui_utils__WEBPACK_IMPORTED_MODULE_2__["createElement"])('video', { attributes: { playsinline: '', autoplay: '' }, properties: { srcObject: stream, muted: true }, container: me }));
+    .then((stream) => Object(_viero_ui_utils__WEBPACK_IMPORTED_MODULE_2__["createElement"])('video', { attributes: { playsinline: '', autoplay: '', class: 'border border-dark rounded-lg m-3' }, properties: { srcObject: stream, muted: true }, container: me }));
 });
 
 
@@ -19102,7 +19102,7 @@ state.videochat.addEventListener(_viero_webrtc_common__WEBPACK_IMPORTED_MODULE_3
 });
 state.videochat.addEventListener(_viero_webrtc_common__WEBPACK_IMPORTED_MODULE_3__["VieroWebRTCCommon"].EVENT.PEER.DID_ENTER, (evt) => {
   console.log('PEER.DID_ENTER', evt.detail.peer.socketId);
-  Object(_viero_ui_utils__WEBPACK_IMPORTED_MODULE_2__["createElement"])('video', { attributes: { id: idBy(evt.detail.peer.socketId), playsinline: '', autoplay: '' }, container: peers });
+  Object(_viero_ui_utils__WEBPACK_IMPORTED_MODULE_2__["createElement"])('video', { attributes: { id: idBy(evt.detail.peer.socketId), playsinline: '', autoplay: '', class: 'border border-dark rounded-lg m-3' }, container: peers });
 });
 state.videochat.addEventListener(_viero_webrtc_common__WEBPACK_IMPORTED_MODULE_3__["VieroWebRTCCommon"].EVENT.PEER.DID_LEAVE, (evt) => {
   console.log('PEER.DID_LEAVE', evt.detail.peer.socketId);
